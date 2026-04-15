@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Participant Persona Profiles — AI Readiness & Digital Adoption Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:     #1E2F49;
+    --navy-mid: #2C4266;
+    --gold:     #C9A84C;
+    --gold-lt:  #E8D5A3;
+    --cream:    #F9F6F0;
+    --ink:      #1A1A2E;
+    --slate:    #4A5568;
+    --rule:     #D6CEBC;
+    --p1:       #9B2335;
+    --p2:       #1A5C7A;
+    --p3:       #1B6B3A;
+    --p4:       #5B2D8E;
+    --p1-lt:    #F9EEF0;
+    --p2-lt:    #EBF4F8;
+    --p3-lt:    #EBF5EF;
+    --p4-lt:    #F2EDF8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 10.5pt;
+    line-height: 1.7;
+  }
+
+  /* ── Page wrapper ── */
+  .page {
+    width: 8.5in;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 40px rgba(0,0,0,0.08);
+  }
+
+  /* ── Cover ── */
+  .cover {
+    background: var(--navy);
+    padding: 3in 0.85in 1in;
+    position: relative;
+    overflow: hidden;
+    min-height: 4.2in;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: var(--gold);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -60px;
+    width: 340px; height: 340px;
+    border: 1.5px solid rgba(201,168,76,0.18);
+    border-radius: 50%;
+  }
+  .cover-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.55in;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38pt;
+    font-weight: 700;
+    color: white;
+    line-height: 1.18;
+    margin-bottom: 0.2in;
+    max-width: 5.5in;
+  }
+  .cover h1 em {
+    font-style: italic;
+    color: var(--gold-lt);
+  }
+  .cover-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: 12pt;
+    color: rgba(255,255,255,0.72);
+    font-weight: 300;
+    margin-bottom: 0.45in;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 0.35in;
+    border-top: 1px solid rgba(201,168,76,0.3);
+    padding-top: 0.22in;
+  }
+  .cover-meta-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.06em;
+  }
+  .cover-meta-item strong {
+    display: block;
+    color: rgba(255,255,255,0.85);
+    font-size: 8pt;
+    margin-bottom: 2px;
+  }
+
+  /* ── Section wrapper ── */
+  .section {
+    padding: 0.65in 0.85in;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section:last-child { border-bottom: none; }
+
+  /* ── Foundations ── */
+  .foundations-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.2in;
+    margin-bottom: 0.25in;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20pt;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.18in;
+    line-height: 1.25;
+  }
+  .intro-text {
+    font-size: 10.5pt;
+    color: var(--slate);
+    max-width: 6.4in;
+    margin-bottom: 0.3in;
+  }
+
+  /* ── Framework table ── */
+  .fw-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0.25in;
+    font-size: 9.5pt;
+  }
+  .fw-table thead th {
+    background: var(--navy);
+    color: white;
+    font-family: 'DM Mono', monospace;
+    font-size: 7.5pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 9px 14px;
+    text-align: left;
+    font-weight: 500;
+  }
+  .fw-table thead th:first-child {
+    border-bottom: 3px solid var(--gold);
+  }
+  .fw-table tbody tr:nth-child(odd)  { background: white; }
+  .fw-table tbody tr:nth-child(even) { background: var(--cream); }
+  .fw-table tbody td {
+    padding: 11px 14px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.55;
+  }
+  .fw-table tbody td:first-child {
+    font-weight: 600;
+    color: var(--navy);
+    white-space: nowrap;
+    width: 1.8in;
+    font-size: 9pt;
+  }
+  .fw-note {
+    font-size: 8.5pt;
+    color: var(--slate);
+    font-style: italic;
+    border-left: 3px solid var(--gold-lt);
+    padding-left: 0.15in;
+    line-height: 1.6;
+  }
+
+  /* ── Persona pages ── */
+  .persona-section {
+    padding: 0.55in 0.85in 0.6in;
+    border-bottom: 1px solid var(--rule);
+  }
+  .persona-header {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 0.32in;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+  .persona-number {
+    width: 0.7in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 28pt;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+  .persona-header-text {
+    flex: 1;
+    padding: 0.18in 0.22in;
+  }
+  .persona-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16pt;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .persona-tagline {
+    font-family: 'Source Serif 4', serif;
+    font-size: 9.5pt;
+    color: rgba(255,255,255,0.78);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* ── Two-column layout ── */
+  .persona-body {
+    display: grid;
+    grid-template-columns: 2.1in 1fr;
+    gap: 0.35in;
+    align-items: start;
+  }
+
+  /* ── Profile card ── */
+  .profile-card {
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 8.5pt;
+  }
+  .profile-card-header {
+    padding: 8px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 500;
+  }
+  .profile-card table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .profile-card table tr:nth-child(odd)  { background: white; }
+  .profile-card table tr:nth-child(even) { background: var(--cream); }
+  .profile-card table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  .profile-card table tr:last-child td { border-bottom: none; }
+  .profile-card table td:first-child {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    width: 42%;
+    font-weight: 500;
+    padding-right: 6px;
+  }
+  .profile-card table td:last-child {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 8.5pt;
+  }
+
+  /* ── Right column content ── */
+  .persona-content {}
+
+  .content-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.8pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 6px;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .content-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .content-label:first-child { margin-top: 0; }
+
+  .theory-text {
+    font-size: 9.5pt;
+    color: var(--slate);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .vignette-block {
+    border-left: 3px solid;
+    padding: 0.14in 0.16in;
+    margin: 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .vignette-block p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 9.5pt;
+    font-style: italic;
+    color: var(--slate);
+    line-height: 1.72;
+    text-align: justify;
+  }
+
+  /* ── Signals grid ── */
+  .signals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 2px;
+  }
+  .signal-pill {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 7px 10px 7px 28px;
+    font-size: 8.5pt;
+    color: var(--navy);
+    line-height: 1.4;
+    position: relative;
+  }
+  .signal-pill::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+  }
+
+  /* ── Spectrum bars ── */
+  .bars-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.12in;
+    margin-bottom: 0.18in;
+  }
+  .bar-wrap {}
+  .bar-label-top {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--slate);
+    letter-spacing: 0.08em;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+  .bar-track {
+    display: flex;
+    gap: 3px;
+    height: 22px;
+  }
+  .bar-seg {
+    flex: 1;
+    border-radius: 2px;
+    background: #DDE3EA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 5.8pt;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+    transition: background 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 2px;
+  }
+  .bar-seg.active {
+    color: white;
+    font-weight: 500;
+  }
+  .bar-seg.past { background: #B5C0CC; color: var(--navy); }
+
+  /* ── Closing section ── */
+  .closing-box {
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 0.3in 0.35in;
+    margin-bottom: 0.3in;
+  }
+  .closing-box p {
+    color: rgba(255,255,255,0.85);
+    font-size: 10pt;
+    line-height: 1.72;
+    text-align: justify;
+  }
+
+  /* ── Summary matrix ── */
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+  }
+  .matrix-table thead th {
+    background: var(--navy);
+    color: white;
+    font-family: 'DM Mono', monospace;
+    font-size: 6.8pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 9px 12px;
+    text-align: left;
+    font-weight: 500;
+    border-bottom: 2px solid var(--gold);
+  }
+  .matrix-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .matrix-table tbody tr:nth-child(even) td { background: var(--cream); }
+  .matrix-table tbody td:first-child {
+    font-weight: 700;
+    font-size: 8.5pt;
+  }
+  .matrix-fig-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--slate);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* ── Footer ── */
+  .doc-footer {
+    background: var(--navy);
+    padding: 0.22in 0.85in;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .doc-footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.06em;
+  }
+  .doc-footer strong { color: rgba(255,255,255,0.75); }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; width: 100%; }
+    .persona-section, .section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── COVER ── -->
+  <div class="cover">
+    <div class="cover-eyebrow">Small Business AI Training Program</div>
+    <h1>Participant<br><em>Persona Profiles</em></h1>
+    <div class="cover-sub">AI Readiness &amp; Digital Adoption Framework</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><strong>Survey Sample</strong>n = 537 SMB respondents</div>
+      <div class="cover-meta-item"><strong>Languages</strong>English · Spanish · Chinese</div>
+      <div class="cover-meta-item"><strong>EAC Centers</strong>25 across New York State</div>
+      <div class="cover-meta-item"><strong>Author</strong>Daniel Quansah · Bard / CEU</div>
+    </div>
+  </div>
+
+  <!-- ── THEORETICAL FOUNDATIONS ── -->
+  <div class="section">
+    <div class="foundations-header">
+      <span class="section-label">Theoretical Foundations</span>
+      <div class="section-rule"></div>
+    </div>
+    <p class="intro-text">
+      In program design and curriculum development, it is important to recognize that even though similar, program beneficiaries are not a monolith. While they may share surface-level similarities, meaningful differences in experience, capacity, and perception shape how they engage with new tools and ideas. For this project, personas were created based on AI/digital literacy, prior usage, attitudes toward AI and digital tools, preferred learning styles, and organizational characteristics. This segmentation is grounded in four complementary theoretical frameworks.
+    </p>
+    <table class="fw-table">
+      <thead>
+        <tr>
+          <th>Framework</th>
+          <th>Key Contribution to Persona Design</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rogers' Diffusion of Innovations</td>
+          <td>Focuses on how the perceived value and impact of new technology, coupled with organizational culture, influences rate of adoption. Used here as a spectrum rather than rigid categories — describing psychological and behavioral readiness to adopt new technologies.</td>
+        </tr>
+        <tr>
+          <td>Digital Divide Theory (Jan van Dijk)</td>
+          <td>Provides a layered understanding of technological access, distinguishing between motivational, material, skills-based, and usage barriers. Demonstrates that access to tools alone does not ensure meaningful adoption — a critical lens for this immigrant-owned micro-enterprise population.</td>
+        </tr>
+        <tr>
+          <td>BCG AI Adoption Stage Model</td>
+          <td>Maps the path to AI adoption into five stages progressing from traditional workflows (Information Assistance, Task Assistance, Delegation) to AI agentic workflows (Semiautonomous Collaboration, Autonomous Orchestration). Matches five distinct employee personas to each stage, adapted here for small business operators.</td>
+        </tr>
+        <tr>
+          <td>Curry's Learning Styles Onion Model</td>
+          <td>Layers instructional preference (preferred choice of learning environment), social interaction preference during learning, information processing style (individual intellectual approach to processing information), and cognitive personality style (core personality and how it influences learning). Informs how potential participants will engage with the program — used as tendencies, not deterministic categories.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="fw-note">
+      Taken together, these frameworks informed the development of four participant personas derived from small business survey data. These personas are neither exhaustive nor mutually exclusive; rather, they serve as flexible guides, acknowledging that individuals may exhibit overlap, hybridity, and variation in practice.
+    </p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- PERSONA 1 — THE STRUCTURALLY EXCLUDED             -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="persona-section">
+    <div class="persona-header" style="background: var(--p1);">
+      <div class="persona-number" style="background: rgba(0,0,0,0.18);">1</div>
+      <div class="persona-header-text">
+        <div class="persona-title">The Structurally Excluded</div>
+        <div class="persona-tagline">Proximity, not aptitude, is the barrier.</div>
+      </div>
+    </div>
+
+    <div class="bars-row">
+      <div class="bar-wrap">
+        <div class="bar-label-top">Rogers' Adoption Spectrum</div>
+        <div class="bar-track">
+          <div class="bar-seg active" style="background: var(--p1);">Laggard</div>
+          <div class="bar-seg">Late Maj.</div>
+          <div class="bar-seg">Early Maj.</div>
+          <div class="bar-seg">E. Adopter</div>
+          <div class="bar-seg">Innovator</div>
+        </div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label-top">BCG AI Adoption Stage</div>
+        <div class="bar-track">
+          <div class="bar-seg active" style="background: var(--p1);">Info Asst.</div>
+          <div class="bar-seg">Task Asst.</div>
+          <div class="bar-seg">Delegation</div>
+          <div class="bar-seg">Semi-Auto</div>
+          <div class="bar-seg">Autonomous</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="persona-body">
+      <div>
+        <div class="profile-card">
+          <div class="profile-card-header" style="background: var(--p1);">Persona Profile</div>
+          <table>
+            <tr><td>Archetype</td><td>Laggard (structural)</td></tr>
+            <tr><td>Barrier Type</td><td>Access &amp; Language — first-order, material divide</td></tr>
+            <tr><td>BCG Stage</td><td>Information Assistance (ceiling, not floor)</td></tr>
+            <tr><td>Learning Style</td><td>Observational, in-person, socially embedded, language-appropriate environment required</td></tr>
+            <tr><td>Training Priority</td><td>Bilingual, hands-on, community-anchored delivery</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="persona-content">
+        <div class="content-label">Theoretical Composite</div>
+        <p class="theory-text">
+          On Rogers' spectrum, this persona sits firmly at the Laggard end — but not because of temperament. The Digital Divide literature (van Dijk) is indispensable here: the barrier is first-order, rooted in access to infrastructure, language, and institutional trust, not in psychological resistance. BCG's Stage 1 (Information Assistance) is the ceiling, not the floor — most in this group have not meaningfully tried AI and cannot yet distinguish it from a generic internet search. Through Curry's Onion Model, instructional preference sits at the outermost layer: they require in-person, socially embedded, language-appropriate environments before any deeper learning can take hold. The challenge is not capability. It is proximity — to the right tool, at the right moment, with the right guide.
+        </p>
+
+        <div class="content-label">Persona POV</div>
+        <div class="vignette-block" style="border-color: var(--p1); background: var(--p1-lt);">
+          <p>Lucy has been running the laundromat for eleven years. The phone never stops. There is always something — a supplier, a customer, a broken machine — pulling her attention in three directions at once. Someone once showed her a translation app and she used it for a week, then forgot. AI, to her, is a word that belongs to a different world: sleek offices, fast people, English speakers. Not hers. Not yet. She is not afraid of it — she just cannot see where the door is.</p>
+        </div>
+
+        <div class="content-label">Key Differentiating Signals</div>
+        <div class="signals-grid">
+          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>Digital comfort:</strong> Struggles with or actively avoids technology</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>AI tools tried:</strong> None, or Google Translate only</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>Learning mode:</strong> In-person, one-on-one, in native language</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>Primary challenge:</strong> Customer acquisition, managing finances, finding time</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>Language:</strong> Non-English preference — Spanish or Chinese</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>Business sector:</strong> Personal services, food/retail — high operational load, low administrative slack</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- PERSONA 2 — THE CAUTIOUS PRAGMATIST               -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="persona-section">
+    <div class="persona-header" style="background: var(--p2);">
+      <div class="persona-number" style="background: rgba(0,0,0,0.18);">2</div>
+      <div class="persona-header-text">
+        <div class="persona-title">The Cautious Pragmatist</div>
+        <div class="persona-tagline">Aware. Not yet committed. Waiting for proof.</div>
+      </div>
+    </div>
+
+    <div class="bars-row">
+      <div class="bar-wrap">
+        <div class="bar-label-top">Rogers' Adoption Spectrum</div>
+        <div class="bar-track">
+          <div class="bar-seg past">Laggard</div>
+          <div class="bar-seg past">Late Maj.</div>
+          <div class="bar-seg active" style="background: var(--p2);">Early Maj.</div>
+          <div class="bar-seg">E. Adopter</div>
+          <div class="bar-seg">Innovator</div>
+        </div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label-top">BCG AI Adoption Stage</div>
+        <div class="bar-track">
+          <div class="bar-seg past">Info Asst.</div>
+          <div class="bar-seg active" style="background: var(--p2);">Task Asst.</div>
+          <div class="bar-seg">Delegation</div>
+          <div class="bar-seg">Semi-Auto</div>
+          <div class="bar-seg">Autonomous</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="persona-body">
+      <div>
+        <div class="profile-card">
+          <div class="profile-card-header" style="background: var(--p2);">Persona Profile</div>
+          <table>
+            <tr><td>Archetype</td><td>Early / Late Majority</td></tr>
+            <tr><td>Barrier Type</td><td>Motivational divide — belief AI could help, but no proof yet</td></tr>
+            <tr><td>BCG Stage</td><td>Task Assistance to early Delegation — episodic, not embedded</td></tr>
+            <tr><td>Learning Style</td><td>Concrete, sequential demonstration — the "so what for my business" must be immediate and visible</td></tr>
+            <tr><td>Training Priority</td><td>Peer-to-peer examples, live use cases from similar businesses</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="persona-content">
+        <div class="content-label">Theoretical Composite</div>
+        <p class="theory-text">
+          This is the most populous persona in the sample — the quiet middle. On Rogers' spectrum, they sit in the Early/Late Majority zone: aware, not yet committed. BCG places them at Stage 2–3 (Task Assistance to early Delegation) — they have tried a tool, perhaps ChatGPT for a caption or Canva's AI features for a flyer, but the use has been episodic, not embedded. Van Dijk's motivational divide is the operative barrier: they believe AI could help, but they need proof — proof it is safe, proof it saves time, proof it is not going to replace something they have built carefully. Through Curry's model, their information processing style favors concrete, sequential demonstration over abstract concept — the "so what for my business" must be immediate and visible before they will commit sustained attention.
+        </p>
+
+        <div class="content-label">Persona POV</div>
+        <div class="vignette-block" style="border-color: var(--p2); background: var(--p2-lt);">
+          <p>Mustafa knows what ChatGPT is. He has used it once, maybe twice, to draft an email he was not sure how to word. The result was decent. He closed the tab and went back to work. It is not that he distrusts it. It is that trust, for him, is built slowly — through evidence that accumulates gradually, through use. Show him one business like his, in his neighborhood, that uses AI every week and saves four hours. That might be enough.</p>
+        </div>
+
+        <div class="content-label">Key Differentiating Signals</div>
+        <div class="signals-grid">
+          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>Digital comfort:</strong> Comfortable — can figure most things out</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>AI tools tried:</strong> 1–2 tools (ChatGPT, Grammarly, or Canva AI features)</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>AI uses:</strong> Writing/editing text, social media content — isolated, not systematic</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>Motivators:</strong> "Seeing examples from businesses like mine" and "proof it will save me time"</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>Concerns:</strong> Accuracy of outputs, data privacy and security</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>Learning preference:</strong> In-person workshop, one-on-one coaching, working alongside someone</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- PERSONA 3 — THE EMERGENT ADOPTER                  -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="persona-section">
+    <div class="persona-header" style="background: var(--p3);">
+      <div class="persona-number" style="background: rgba(0,0,0,0.18);">3</div>
+      <div class="persona-header-text">
+        <div class="persona-title">The Emergent Adopter</div>
+        <div class="persona-tagline">Experimenting at the edges. Scaffolding needed.</div>
+      </div>
+    </div>
+
+    <div class="bars-row">
+      <div class="bar-wrap">
+        <div class="bar-label-top">Rogers' Adoption Spectrum</div>
+        <div class="bar-track">
+          <div class="bar-seg past">Laggard</div>
+          <div class="bar-seg past">Late Maj.</div>
+          <div class="bar-seg past">Early Maj.</div>
+          <div class="bar-seg active" style="background: var(--p3);">E. Adopter</div>
+          <div class="bar-seg">Innovator</div>
+        </div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label-top">BCG AI Adoption Stage</div>
+        <div class="bar-track">
+          <div class="bar-seg past">Info Asst.</div>
+          <div class="bar-seg past">Task Asst.</div>
+          <div class="bar-seg active" style="background: var(--p3);">Delegation</div>
+          <div class="bar-seg">Semi-Auto</div>
+          <div class="bar-seg">Autonomous</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="persona-body">
+      <div>
+        <div class="profile-card">
+          <div class="profile-card-header" style="background: var(--p3);">Persona Profile</div>
+          <table>
+            <tr><td>Archetype</td><td>Early Adopter</td></tr>
+            <tr><td>Barrier Type</td><td>Skills gap — van Dijk's second-order divide; access is no longer the constraint</td></tr>
+            <tr><td>BCG Stage</td><td>Delegation — defined tasks assigned to AI, workflow not yet restructured</td></tr>
+            <tr><td>Learning Style</td><td>Active, peer-oriented, experiential — learns by doing and breaking things before reading the manual</td></tr>
+            <tr><td>Training Priority</td><td>Guided scaffolding — workflow integration, structured experimentation</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="persona-content">
+        <div class="content-label">Theoretical Composite</div>
+        <p class="theory-text">
+          Here, the Rogers curve accelerates. These respondents sit in the Early Adopter zone — they have crossed the threshold from awareness to active experimentation, but are still building fluency. BCG Stage 3 (Delegation) is their current home: they assign defined tasks to AI — email drafts, image generation, research queries — but have not yet restructured their workflow around it. The Digital Divide is no longer the primary barrier; the gap is now one of skills (van Dijk's second-order divide) rather than access. Through Curry's model, their social interaction preference is active and peer-oriented, with a strong information processing tendency toward active experimentation — they learn by doing, by breaking things, by trying a new tool before reading the manual. What they need is not permission. It is scaffolding.
+        </p>
+
+        <div class="content-label">Persona POV</div>
+        <div class="vignette-block" style="border-color: var(--p3); background: var(--p3-lt);">
+          <p>Bridget runs the tutoring business alone — curriculum, marketing, invoicing, everything. She found Claude six months ago and it felt, in her own words, like getting an extra pair of hands. Not a replacement. An assistant. She has started to map out where else it might fit, poking at the edges of her workflow like someone testing ice before stepping onto a frozen pond. She is ready to go further. She just needs to know the ice will hold.</p>
+        </div>
+
+        <div class="content-label">Key Differentiating Signals</div>
+        <div class="signals-grid">
+          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>Digital comfort:</strong> Very comfortable — enjoys using technology</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>AI tools tried:</strong> 3 or more (ChatGPT, Claude, Canva AI, Grammarly, Gemini)</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>AI uses:</strong> Writing, research, social media, customer communications — multi-purpose but not yet systematic</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>Motivators:</strong> "Having someone walk me through it" and free or low-cost tools</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>Learning preference:</strong> Self-paced online videos, virtual workshops, coaching — multimodal</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>Primary time sink:</strong> Content creation and administrative tasks — areas most ripe for AI delegation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- PERSONA 4 — THE EMBEDDED PRACTITIONER             -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="persona-section">
+    <div class="persona-header" style="background: var(--p4);">
+      <div class="persona-number" style="background: rgba(0,0,0,0.18);">4</div>
+      <div class="persona-header-text">
+        <div class="persona-title">The Embedded Practitioner</div>
+        <div class="persona-tagline">AI is not a tool. It is the ambient condition of work.</div>
+      </div>
+    </div>
+
+    <div class="bars-row">
+      <div class="bar-wrap">
+        <div class="bar-label-top">Rogers' Adoption Spectrum</div>
+        <div class="bar-track">
+          <div class="bar-seg past">Laggard</div>
+          <div class="bar-seg past">Late Maj.</div>
+          <div class="bar-seg past">Early Maj.</div>
+          <div class="bar-seg past">E. Adopter</div>
+          <div class="bar-seg active" style="background: var(--p4);">Innovator</div>
+        </div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label-top">BCG AI Adoption Stage</div>
+        <div class="bar-track">
+          <div class="bar-seg past">Info Asst.</div>
+          <div class="bar-seg past">Task Asst.</div>
+          <div class="bar-seg past">Delegation</div>
+          <div class="bar-seg active" style="background: var(--p4);">Semi-Auto</div>
+          <div class="bar-seg">Autonomous</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="persona-body">
+      <div>
+        <div class="profile-card">
+          <div class="profile-card-header" style="background: var(--p4);">Persona Profile</div>
+          <table>
+            <tr><td>Archetype</td><td>Innovator / Early Adopter</td></tr>
+            <tr><td>Barrier Type</td><td>Output quality and reliability — not access, confidence, or motivation</td></tr>
+            <tr><td>BCG Stage</td><td>Semiautonomous Collaboration — AI woven into core workflows, not merely reached for</td></tr>
+            <tr><td>Learning Style</td><td>Theorist and reflector — thinks carefully about AI behavior, pushes back when outputs disappoint, iterates deliberately</td></tr>
+            <tr><td>Training Priority</td><td>Advanced automation, agentic workflows, output evaluation</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="persona-content">
+        <div class="content-label">Theoretical Composite</div>
+        <p class="theory-text">
+          Rare in this sample — but present. On Rogers' curve, these are Innovators and Early Adopters who have already crossed into BCG's Stage 4 (Semiautonomous Collaboration): AI is not a tool they reach for occasionally, it is woven into how work gets done. Van Dijk's divide barely registers; their barriers, where they exist, are about quality and reliability of outputs — not access or confidence. Through Curry's Onion Model, their cognitive personality style reflects strong internal processing: they think carefully about what AI is doing, push back when outputs disappoint, and iterate deliberately. They are the peer models BCG identifies as catalysts for organizational adoption. In a small-business context, they are the proof of concept the program can point to.
+        </p>
+
+        <div class="content-label">Persona POV</div>
+        <div class="vignette-block" style="border-color: var(--p4); background: var(--p4-lt);">
+          <p>The translation tools came first — a practical decision, a bridge between languages in a city where commerce runs on code-switching. Then came the content generation, then the automations. Now AI is less a feature of how Lee works and more the ambient condition of it, like electricity — unremarkable until it is gone. She does not evangelize. She just produces, reliably, more than she once thought was possible for one person.</p>
+        </div>
+
+        <div class="content-label">Key Differentiating Signals</div>
+        <div class="signals-grid">
+          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>Digital comfort:</strong> Very comfortable — enjoys using technology</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>AI tools tried:</strong> 4 or more tools across multiple categories</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>AI uses:</strong> Full stack — writing, research, image generation, customer communications, translation, automation</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>Concerns (if any):</strong> Cost of AI tools and output accuracy at advanced use cases — not adoption itself</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>Learning preference:</strong> Self-directed; interested in automation, workflow integration, and advanced use</div>
+          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>Business sector:</strong> Education, professional services, creative industries — knowledge-intensive sectors</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CLOSING SYNTHESIS ── -->
+  <div class="section">
+    <div class="foundations-header">
+      <span class="section-label">Synthesis</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-title">The Logic Holding This Together</div>
+    <div class="closing-box">
+      <p>The spine of this framework is the recognition that readiness and access are not the same thing — and that conflating them is how programs design solutions for the wrong problem. A structurally excluded owner and a cautious pragmatist may both show low AI adoption, but one needs a language-accessible entry point and the other needs a compelling use case. The four-persona model honors that distinction. What it reveals — that a demographic breakdown cannot — is that this population is not simply "behind." It is differentiated, and the shape of its differentiation follows the contours of structural inequality as much as individual psychology. The intervention logic flows directly from this: different personas require different doors, not a bigger megaphone at the same door.</p>
+    </div>
+
+    <div class="matrix-fig-label">Figure 1 — Persona Summary Matrix</div>
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>Persona</th>
+          <th>Rogers Stage</th>
+          <th>BCG Stage</th>
+          <th>Primary Barrier</th>
+          <th>Training Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color: var(--p1); border-left: 3px solid var(--p1);">The Structurally Excluded</td>
+          <td>Laggard</td>
+          <td>Information Assistance</td>
+          <td>Access &amp; Language</td>
+          <td>Bilingual, in-person, community-anchored</td>
+        </tr>
+        <tr>
+          <td style="color: var(--p2); border-left: 3px solid var(--p2);">The Cautious Pragmatist</td>
+          <td>Early / Late Majority</td>
+          <td>Task Assistance → Delegation</td>
+          <td>Motivation &amp; Trust</td>
+          <td>Peer examples, live business use cases</td>
+        </tr>
+        <tr>
+          <td style="color: var(--p3); border-left: 3px solid var(--p3);">The Emergent Adopter</td>
+          <td>Early Adopter</td>
+          <td>Delegation</td>
+          <td>Skills gap (2nd-order)</td>
+          <td>Guided scaffolding, workflow integration</td>
+        </tr>
+        <tr>
+          <td style="color: var(--p4); border-left: 3px solid var(--p4);">The Embedded Practitioner</td>
+          <td>Innovator</td>
+          <td>Semiautonomous Collaboration</td>
+          <td>Output quality only</td>
+          <td>Advanced automation, agentic workflows</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="doc-footer">
+    <span><strong>Daniel Quansah</strong> · Bard College / CEU Masters Capstone · 2025</span>
+    <span>Small Business AI Training Program · n = 537 · 25 EAC Centers</span>
+  </div>
+
+</div>
+</body>
+</html>
