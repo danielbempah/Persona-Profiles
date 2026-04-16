@@ -487,6 +487,8 @@
     .persona-section, .section { page-break-inside: avoid; }
   }
 
+/* ── SURVEY STYLES (sv- prefixed) ── */
+
   :root {
     --navy:    #1E2F49;
     --navy2:   #263d61;
@@ -519,23 +521,23 @@
     line-height: 1.65;
   }
 
-  .survey-page { width: 8.5in; margin: 0 auto; background: white; }
+  .sv-page { width: 8.5in; margin: 0 auto; background: white; }
 
   /* ── HEADER ── */
-  .survey-header {
+  .sv-header {
     background: var(--navy);
     padding: 0.55in 0.75in 0.45in;
     position: relative;
     overflow: hidden;
   }
-  .survey-header::before {
+  .sv-header::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 4px;
     background: var(--gold);
   }
-  .survey-header::after {
+  .sv-header::after {
     content: '';
     position: absolute;
     right: -80px; bottom: -80px;
@@ -544,7 +546,7 @@
     border-radius: 50%;
     pointer-events: none;
   }
-  .survey-header-eyebrow {
+  .sv-header-eyebrow {
     font-family: 'DM Mono', monospace;
     font-size: 7pt;
     color: var(--gold);
@@ -552,7 +554,7 @@
     text-transform: uppercase;
     margin-bottom: 0.12in;
   }
-  .survey-header h1 {
+  .sv-header h1 {
     font-family: 'Playfair Display', serif;
     font-size: 26pt;
     font-weight: 700;
@@ -560,8 +562,8 @@
     line-height: 1.2;
     margin-bottom: 8px;
   }
-  .survey-header h1 em { font-style: italic; color: var(--gold-lt); }
-  .survey-header-sub {
+  .sv-header h1 em { font-style: italic; color: var(--gold-lt); }
+  .sv-header-sub {
     font-size: 9.5pt;
     color: rgba(255,255,255,0.65);
     font-weight: 300;
@@ -570,13 +572,13 @@
   }
 
   /* ── SECTION WRAPPER ── */
-  .survey-section {
+  .sv-section {
     padding: 0.45in 0.75in;
     border-bottom: 1px solid var(--rule);
   }
-  .survey-section:last-child { border-bottom: none; }
+  .sv-section:last-child { border-bottom: none; }
 
-  .survey-section-eyebrow {
+  .sv-section-eyebrow {
     font-family: 'DM Mono', monospace;
     font-size: 7pt;
     color: var(--gold);
@@ -584,14 +586,14 @@
     text-transform: uppercase;
     margin-bottom: 6px;
   }
-  .survey-section-title {
+  .sv-section-title {
     font-family: 'Playfair Display', serif;
     font-size: 15pt;
     font-weight: 600;
     color: var(--navy);
     margin-bottom: 10px;
   }
-  .survey-section-intro {
+  .sv-section-intro {
     font-size: 9.5pt;
     color: var(--slate);
     line-height: 1.7;
@@ -600,7 +602,7 @@
   }
 
   /* ── INSTRUCTIONS BOX ── */
-  .instructions {
+  .sv-instructions {
     background: var(--navy);
     border-radius: var(--radius);
     padding: 0.22in 0.28in;
@@ -609,8 +611,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0.2in;
   }
-  .instr-item { }
-  .instr-num {
+  .sv-instr-item { }
+  .sv-instr-num {
     font-family: 'DM Mono', monospace;
     font-size: 18pt;
     font-weight: 500;
@@ -618,17 +620,17 @@
     line-height: 1;
     margin-bottom: 4px;
   }
-  .instr-text {
+  .sv-instr-text {
     font-size: 8.5pt;
     color: rgba(255,255,255,0.75);
     line-height: 1.55;
   }
 
   /* ── QUESTION BLOCKS ── */
-  .q-group {
+  .sv-q-group {
     margin-bottom: 0.28in;
   }
-  .q-group-label {
+  .sv-q-group-label {
     font-family: 'DM Mono', monospace;
     font-size: 6.8pt;
     letter-spacing: 0.16em;
@@ -639,18 +641,18 @@
     margin-bottom: 0.14in;
   }
 
-  .question {
+  .sv-question {
     margin-bottom: 0.18in;
     page-break-inside: avoid;
   }
-  .q-stem {
+  .sv-q-stem {
     font-size: 9.5pt;
     font-weight: 500;
     color: var(--ink);
     margin-bottom: 8px;
     line-height: 1.55;
   }
-  .q-num {
+  .sv-q-num {
     font-family: 'DM Mono', monospace;
     font-size: 8pt;
     color: var(--gold);
@@ -659,8 +661,8 @@
   }
 
   /* Radio options */
-  .options { display: flex; flex-direction: column; gap: 5px; }
-  .option {
+  .sv-options { display: flex; flex-direction: column; gap: 5px; }
+  .sv-option {
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -672,14 +674,14 @@
     color: var(--slate);
     line-height: 1.45;
   }
-  .option-radio {
+  .sv-option-radio {
     width: 14px; height: 14px;
     border: 1.5px solid #B0BAC6;
     border-radius: 50%;
     flex-shrink: 0;
     margin-top: 2px;
   }
-  .option-score {
+  .sv-option-score {
     font-family: 'DM Mono', monospace;
     font-size: 7pt;
     color: #AAA;
@@ -690,7 +692,7 @@
   }
 
   /* Open text field */
-  .open-field {
+  .sv-open-field {
     width: 100%;
     border: 1px solid var(--rule);
     border-radius: 5px;
@@ -705,7 +707,7 @@
   }
 
   /* ── SCORING RUBRIC ── */
-  .rubric-intro {
+  .sv-rubric-intro {
     font-size: 9pt;
     color: var(--slate);
     line-height: 1.65;
@@ -715,13 +717,13 @@
     font-style: italic;
   }
 
-  .rubric-table {
+  .sv-rubric-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 8.5pt;
     margin-bottom: 0.25in;
   }
-  .rubric-table thead th {
+  .sv-rubric-table thead th {
     background: var(--navy);
     color: white;
     font-family: 'DM Mono', monospace;
@@ -733,20 +735,20 @@
     font-weight: 500;
     border-bottom: 2px solid var(--gold);
   }
-  .rubric-table thead th:first-child { width: 1.1in; }
-  .rubric-table thead th:nth-child(2) { width: 0.8in; }
-  .rubric-table tbody td {
+  .sv-rubric-table thead th:first-child { width: 1.1in; }
+  .sv-rubric-table thead th:nth-child(2) { width: 0.8in; }
+  .sv-rubric-table tbody td {
     padding: 9px 11px;
     border-bottom: 1px solid var(--rule);
     vertical-align: top;
     line-height: 1.5;
   }
-  .rubric-table tbody tr:nth-child(even) td { background: var(--cream); }
-  .rubric-table tbody td:first-child {
+  .sv-rubric-table tbody tr:nth-child(even) td { background: var(--cream); }
+  .sv-rubric-table tbody td:first-child {
     font-weight: 600;
     font-size: 8.5pt;
   }
-  .rubric-table tbody td:nth-child(2) {
+  .sv-rubric-table tbody td:nth-child(2) {
     font-family: 'DM Mono', monospace;
     font-size: 8pt;
     font-weight: 500;
@@ -754,24 +756,24 @@
   }
 
   /* ── PERSONA MATCH CARDS ── */
-  .persona-grid {
+  .sv-persona-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.15in;
     margin-bottom: 0.22in;
   }
-  .persona-match-card {
+  .sv-persona-match-card {
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
   }
-  .pmc-header {
+  .sv-pmc-header {
     padding: 9px 13px;
     display: flex;
     align-items: center;
     gap: 9px;
   }
-  .pmc-num {
+  .sv-pmc-num {
     font-family: 'Playfair Display', serif;
     font-size: 16pt;
     font-weight: 700;
@@ -779,33 +781,33 @@
     line-height: 1;
     opacity: 0.9;
   }
-  .pmc-name {
+  .sv-pmc-name {
     font-family: 'Playfair Display', serif;
     font-size: 10pt;
     font-weight: 700;
     color: white;
     line-height: 1.2;
   }
-  .pmc-tag {
+  .sv-pmc-tag {
     font-size: 7.5pt;
     color: rgba(255,255,255,0.72);
     font-style: italic;
     font-weight: 300;
   }
-  .pmc-body {
+  .sv-pmc-body {
     padding: 10px 13px;
     font-size: 8.5pt;
     color: var(--slate);
     line-height: 1.55;
   }
-  .pmc-body strong { color: var(--navy); font-weight: 600; }
-  .pmc-row {
+  .sv-pmc-body strong { color: var(--navy); font-weight: 600; }
+  .sv-pmc-row {
     display: flex;
     gap: 6px;
     margin-bottom: 4px;
     align-items: baseline;
   }
-  .pmc-label {
+  .sv-pmc-label {
     font-family: 'DM Mono', monospace;
     font-size: 6.5pt;
     letter-spacing: 0.08em;
@@ -816,13 +818,13 @@
   }
 
   /* ── SCORING WORKSHEET ── */
-  .worksheet {
+  .sv-worksheet {
     background: var(--cream);
     border-radius: var(--radius);
     padding: 0.25in 0.3in;
     margin-bottom: 0.22in;
   }
-  .worksheet-title {
+  .sv-worksheet-title {
     font-family: 'DM Mono', monospace;
     font-size: 7.5pt;
     letter-spacing: 0.14em;
@@ -831,12 +833,12 @@
     margin-bottom: 0.14in;
     font-weight: 500;
   }
-  .ws-table {
+  .sv-ws-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 8.5pt;
   }
-  .ws-table th {
+  .sv-ws-table th {
     font-family: 'DM Mono', monospace;
     font-size: 6.8pt;
     letter-spacing: 0.1em;
@@ -847,20 +849,20 @@
     border-bottom: 1.5px solid var(--rule);
     font-weight: 500;
   }
-  .ws-table td {
+  .sv-ws-table td {
     padding: 7px 8px;
     border-bottom: 1px solid var(--rule);
     vertical-align: middle;
     color: var(--slate);
     line-height: 1.45;
   }
-  .ws-table td:last-child {
+  .sv-ws-table td:last-child {
     font-family: 'DM Mono', monospace;
     font-size: 8pt;
     text-align: center;
     color: #AAA;
   }
-  .ws-total {
+  .sv-ws-total {
     font-family: 'DM Mono', monospace;
     font-size: 9pt;
     font-weight: 500;
@@ -870,18 +872,18 @@
   }
 
   /* ── SESSION DESIGN GUIDANCE ── */
-  .session-grid {
+  .sv-session-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.15in;
   }
-  .session-card {
+  .sv-session-card {
     border-radius: var(--radius);
     overflow: hidden;
     border: 1px solid var(--rule);
     font-size: 8.5pt;
   }
-  .sc-header {
+  .sv-sc-header {
     padding: 8px 13px;
     font-family: 'DM Mono', monospace;
     font-size: 7pt;
@@ -890,36 +892,36 @@
     color: white;
     font-weight: 500;
   }
-  .sc-body {
+  .sv-sc-body {
     padding: 10px 13px;
     color: var(--slate);
     line-height: 1.6;
   }
-  .sc-body ul {
+  .sv-sc-body ul {
     padding-left: 1em;
     margin-top: 4px;
   }
-  .sc-body li { margin-bottom: 3px; }
-  .sc-body strong { color: var(--navy); }
+  .sv-sc-body li { margin-bottom: 3px; }
+  .sv-sc-body strong { color: var(--navy); }
 
   /* ── FOOTER ── */
-  .survey-footer {
+  .sv-footer {
     background: var(--navy);
     padding: 0.18in 0.75in;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .survey-footer span {
+  .sv-footer span {
     font-family: 'DM Mono', monospace;
     font-size: 7pt;
     color: rgba(255,255,255,0.4);
     letter-spacing: 0.06em;
   }
-  .survey-footer strong { color: rgba(255,255,255,0.7); }
+  .sv-footer strong { color: rgba(255,255,255,0.7); }
 
   /* Score band chips */
-  .band {
+  .sv-band {
     display: inline-block;
     padding: 2px 8px;
     border-radius: 3px;
@@ -932,8 +934,8 @@
 
   @media print {
     body { background: white; }
-    .survey-page { box-shadow: none; width: 100%; }
-    .survey-section { page-break-inside: avoid; }
+    .sv-page { box-shadow: none; width: 100%; }
+    .sv-section { page-break-inside: avoid; }
   }
 
 </style>
@@ -1349,60 +1351,60 @@
 
 </div>
 
-  <!-- ══════════════════════════════════════════════════════════ -->
-  <!-- SECTION 2: AI OFFICE HOURS — PRE-SESSION INTAKE SURVEY   -->
-  <!-- ══════════════════════════════════════════════════════════ -->
-  <div style="height:0.5in; background: var(--cream); display:flex; align-items:center; justify-content:center; border-top: 3px solid var(--navy);">
-  </div>
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PART 2 — AI OFFICE HOURS: PRE-SESSION INTAKE SURVEY    -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <div style="height:4px; background: #C9A84C;"></div>
 
-<div class="survey-page">
+
+<div class="sv-page">
 
   <!-- ── HEADER ── -->
-  <div class="survey-header">
-    <div class="header-eyebrow">Small Business AI Training Program · Welcome to Chinatown EAC</div>
+  <div class="sv-header">
+    <div class="sv-header-eyebrow">Small Business AI Training Program · Welcome to Chinatown EAC</div>
     <h1>AI Office Hours<br><em>Pre-Session Intake Survey</em></h1>
-    <div class="header-sub">This short survey helps your consultant understand your business and AI experience before your 30-minute session, so we can make the most of your time together. It takes approximately 5–7 minutes to complete.</div>
+    <div class="sv-header-sub">This short survey helps your consultant understand your business and AI experience before your 30-minute session, so we can make the most of your time together. It takes approximately 5–7 minutes to complete.</div>
   </div>
 
   <!-- ══════════════════════════════════════════════ -->
   <!-- PART A — BUSINESS PROFILE                     -->
   <!-- ══════════════════════════════════════════════ -->
-  <div class="survey-section">
-    <div class="section-eyebrow">Part A</div>
-    <div class="section-title">About Your Business</div>
-    <p class="section-intro">These questions help us understand the context of your work. There are no right or wrong answers.</p>
+  <div class="sv-section">
+    <div class="sv-section-eyebrow">Part A</div>
+    <div class="sv-section-title">About Your Business</div>
+    <p class="sv-section-intro">These questions help us understand the context of your work. There are no right or wrong answers.</p>
 
-    <div class="q-group">
-      <div class="q-group-label">Basic Information</div>
+    <div class="sv-q-group">
+      <div class="sv-q-group-label">Basic Information</div>
 
-      <div class="question">
-        <div class="q-stem"><span class="q-num">1.</span>What type of business do you operate?</div>
-        <div class="options">
-          <div class="option"><div class="option-radio"></div>Food &amp; beverage (restaurant, café, catering, food production)</div>
-          <div class="option"><div class="option-radio"></div>Retail (clothing, gifts, household goods, specialty items)</div>
-          <div class="option"><div class="option-radio"></div>Personal services (salon, barber, cleaning, alterations)</div>
-          <div class="option"><div class="option-radio"></div>Professional / business services (accounting, legal, consulting, real estate)</div>
-          <div class="option"><div class="option-radio"></div>Education or tutoring</div>
-          <div class="option"><div class="option-radio"></div>Health &amp; wellness (massage, acupuncture, fitness, childcare)</div>
-          <div class="option"><div class="option-radio"></div>Creative / media (design, photography, content, arts)</div>
-          <div class="option"><div class="option-radio"></div>Construction / trades</div>
-          <div class="option"><div class="option-radio"></div>Other: ___________________________</div>
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">1.</span>What type of business do you operate?</div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio"></div>Food &amp; beverage (restaurant, café, catering, food production)</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Retail (clothing, gifts, household goods, specialty items)</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Personal services (salon, barber, cleaning, alterations)</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Professional / business services (accounting, legal, consulting, real estate)</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Education or tutoring</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Health &amp; wellness (massage, acupuncture, fitness, childcare)</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Creative / media (design, photography, content, arts)</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Construction / trades</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Other: ___________________________</div>
         </div>
       </div>
 
-      <div class="question">
-        <div class="q-stem"><span class="q-num">2.</span>How many people work in your business, including yourself?</div>
-        <div class="options">
-          <div class="option"><div class="option-radio"></div>Just me</div>
-          <div class="option"><div class="option-radio"></div>2–5 people</div>
-          <div class="option"><div class="option-radio"></div>6–10 people</div>
-          <div class="option"><div class="option-radio"></div>More than 10 people</div>
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">2.</span>How many people work in your business, including yourself?</div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio"></div>Just me</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>2–5 people</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>6–10 people</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>More than 10 people</div>
         </div>
       </div>
 
-      <div class="question">
-        <div class="q-stem"><span class="q-num">3.</span>What are the top 1–2 tasks that consume most of your time each week? <em style="font-weight:300;font-size:8.5pt">(Write in your own words)</em></div>
-        <textarea class="open-field" placeholder="e.g. answering customer messages, making social media posts, doing invoices..."></textarea>
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">3.</span>What are the top 1–2 tasks that consume most of your time each week? <em style="font-weight:300;font-size:8.5pt">(Write in your own words)</em></div>
+        <textarea class="sv-open-field" placeholder="e.g. answering customer messages, making social media posts, doing invoices..."></textarea>
       </div>
     </div>
   </div>
@@ -1410,32 +1412,32 @@
   <!-- ══════════════════════════════════════════════ -->
   <!-- PART B — DIGITAL COMFORT                      -->
   <!-- ══════════════════════════════════════════════ -->
-  <div class="survey-section">
-    <div class="section-eyebrow">Part B · Scored</div>
-    <div class="section-title">Digital Comfort &amp; Tool Use</div>
-    <p class="section-intro">These questions assess how comfortable you are with digital tools in general — not just AI.</p>
+  <div class="sv-section">
+    <div class="sv-section-eyebrow">Part B · Scored</div>
+    <div class="sv-section-title">Digital Comfort &amp; Tool Use</div>
+    <p class="sv-section-intro">These questions assess how comfortable you are with digital tools in general — not just AI.</p>
 
-    <div class="q-group">
-      <div class="question">
-        <div class="q-stem"><span class="q-num">4.</span>How comfortable are you using digital tools (smartphone apps, email, social media, online payments) to run your business?</div>
-        <div class="options">
-          <div class="option"><div class="option-radio"></div>I struggle with technology and prefer to avoid it when I can<div class="option-score">1 pt</div></div>
-          <div class="option"><div class="option-radio"></div>I can use basic tools but often need help with new ones<div class="option-score">2 pts</div></div>
-          <div class="option"><div class="option-radio"></div>I'm comfortable — I can usually figure things out on my own<div class="option-score">3 pts</div></div>
-          <div class="option"><div class="option-radio"></div>I'm very comfortable and enjoy trying new digital tools<div class="option-score">4 pts</div></div>
+    <div class="sv-q-group">
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">4.</span>How comfortable are you using digital tools (smartphone apps, email, social media, online payments) to run your business?</div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio"></div>I struggle with technology and prefer to avoid it when I can<div class="sv-option-score">1 pt</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I can use basic tools but often need help with new ones<div class="sv-option-score">2 pts</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I'm comfortable — I can usually figure things out on my own<div class="sv-option-score">3 pts</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I'm very comfortable and enjoy trying new digital tools<div class="sv-option-score">4 pts</div></div>
         </div>
       </div>
 
-      <div class="question">
-        <div class="q-stem"><span class="q-num">5.</span>Which of the following digital tools do you currently use for your business? <em style="font-weight:300;font-size:8.5pt">(Select all that apply)</em></div>
-        <div class="options">
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Email (Gmail, Outlook)</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Social media (Instagram, Facebook, WeChat, WhatsApp)</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Online payments (Venmo, Square, PayPal, Stripe)</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Scheduling or booking tools (Calendly, Acuity, Google Calendar)</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Accounting or invoicing software (QuickBooks, Wave, FreshBooks)</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Website (Wix, Squarespace, Shopify, WordPress)</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>None of the above</div>
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">5.</span>Which of the following digital tools do you currently use for your business? <em style="font-weight:300;font-size:8.5pt">(Select all that apply)</em></div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Email (Gmail, Outlook)</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Social media (Instagram, Facebook, WeChat, WhatsApp)</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Online payments (Venmo, Square, PayPal, Stripe)</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Scheduling or booking tools (Calendly, Acuity, Google Calendar)</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Accounting or invoicing software (QuickBooks, Wave, FreshBooks)</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Website (Wix, Squarespace, Shopify, WordPress)</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>None of the above</div>
         </div>
       </div>
     </div>
@@ -1444,49 +1446,49 @@
   <!-- ══════════════════════════════════════════════ -->
   <!-- PART C — AI FAMILIARITY                       -->
   <!-- ══════════════════════════════════════════════ -->
-  <div class="survey-section">
-    <div class="section-eyebrow">Part C · Scored</div>
-    <div class="section-title">AI Familiarity &amp; Experience</div>
-    <p class="section-intro">These questions assess your prior exposure to AI tools specifically. "AI tools" includes things like ChatGPT, Google Gemini, translation apps, Canva's AI features, and similar.</p>
+  <div class="sv-section">
+    <div class="sv-section-eyebrow">Part C · Scored</div>
+    <div class="sv-section-title">AI Familiarity &amp; Experience</div>
+    <p class="sv-section-intro">These questions assess your prior exposure to AI tools specifically. "AI tools" includes things like ChatGPT, Google Gemini, translation apps, Canva's AI features, and similar.</p>
 
-    <div class="q-group">
-      <div class="question">
-        <div class="q-stem"><span class="q-num">6.</span>Which best describes your experience with AI tools so far?</div>
-        <div class="options">
-          <div class="option"><div class="option-radio"></div>I have never used an AI tool and am not sure what they are<div class="option-score">1 pt</div></div>
-          <div class="option"><div class="option-radio"></div>I have heard of AI tools but have not tried one yet<div class="option-score">2 pts</div></div>
-          <div class="option"><div class="option-radio"></div>I have tried one or two AI tools a few times<div class="option-score">3 pts</div></div>
-          <div class="option"><div class="option-radio"></div>I use AI tools regularly — at least a few times a week<div class="option-score">4 pts</div></div>
-          <div class="option"><div class="option-radio"></div>AI tools are a core part of how I run my business every day<div class="option-score">5 pts</div></div>
+    <div class="sv-q-group">
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">6.</span>Which best describes your experience with AI tools so far?</div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio"></div>I have never used an AI tool and am not sure what they are<div class="sv-option-score">1 pt</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I have heard of AI tools but have not tried one yet<div class="sv-option-score">2 pts</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I have tried one or two AI tools a few times<div class="sv-option-score">3 pts</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I use AI tools regularly — at least a few times a week<div class="sv-option-score">4 pts</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>AI tools are a core part of how I run my business every day<div class="sv-option-score">5 pts</div></div>
         </div>
       </div>
 
-      <div class="question">
-        <div class="q-stem"><span class="q-num">7.</span>Which AI tools have you tried or used? <em style="font-weight:300;font-size:8.5pt">(Select all that apply)</em></div>
-        <div class="options">
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>None</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Google Translate or DeepL (translation tools)</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>ChatGPT</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Google Gemini</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Claude (Anthropic)</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Microsoft Copilot</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Grammarly</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Canva AI features</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Other: ___________________________</div>
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">7.</span>Which AI tools have you tried or used? <em style="font-weight:300;font-size:8.5pt">(Select all that apply)</em></div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>None</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Google Translate or DeepL (translation tools)</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>ChatGPT</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Google Gemini</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Claude (Anthropic)</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Microsoft Copilot</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Grammarly</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Canva AI features</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Other: ___________________________</div>
         </div>
       </div>
 
-      <div class="question">
-        <div class="q-stem"><span class="q-num">8.</span>If you have used AI tools, what have you used them for? <em style="font-weight:300;font-size:8.5pt">(Select all that apply — skip if you have not used any)</em></div>
-        <div class="options">
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Writing or editing text (emails, captions, descriptions)</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Translation</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Answering questions or doing research</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Creating images or visual content</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Social media content or marketing</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Customer communications or responses</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>Scheduling, invoicing, or business automation</div>
-          <div class="option"><div class="option-radio" style="border-radius:2px"></div>I have not used AI tools</div>
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">8.</span>If you have used AI tools, what have you used them for? <em style="font-weight:300;font-size:8.5pt">(Select all that apply — skip if you have not used any)</em></div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Writing or editing text (emails, captions, descriptions)</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Translation</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Answering questions or doing research</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Creating images or visual content</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Social media content or marketing</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Customer communications or responses</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Scheduling, invoicing, or business automation</div>
+          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>I have not used AI tools</div>
         </div>
       </div>
     </div>
@@ -1495,48 +1497,48 @@
   <!-- ══════════════════════════════════════════════ -->
   <!-- PART D — ATTITUDES & GOALS                    -->
   <!-- ══════════════════════════════════════════════ -->
-  <div class="survey-section">
-    <div class="section-eyebrow">Part D · Scored</div>
-    <div class="section-title">Attitudes &amp; Session Goals</div>
-    <p class="section-intro">These questions help us understand how you feel about AI and what you hope to get from the session.</p>
+  <div class="sv-section">
+    <div class="sv-section-eyebrow">Part D · Scored</div>
+    <div class="sv-section-title">Attitudes &amp; Session Goals</div>
+    <p class="sv-section-intro">These questions help us understand how you feel about AI and what you hope to get from the session.</p>
 
-    <div class="q-group">
-      <div class="question">
-        <div class="q-stem"><span class="q-num">9.</span>How do you feel about using AI tools in your business?</div>
-        <div class="options">
-          <div class="option"><div class="option-radio"></div>I am not ready — I have concerns and would need a lot of convincing<div class="option-score">1 pt</div></div>
-          <div class="option"><div class="option-radio"></div>I am cautious — I might try it if someone showed me it was safe and useful<div class="option-score">2 pts</div></div>
-          <div class="option"><div class="option-radio"></div>I am open — I think AI could help, I just need guidance on where to start<div class="option-score">3 pts</div></div>
-          <div class="option"><div class="option-radio"></div>I am eager — I am actively looking to expand how I use AI in my work<div class="option-score">4 pts</div></div>
+    <div class="sv-q-group">
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">9.</span>How do you feel about using AI tools in your business?</div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio"></div>I am not ready — I have concerns and would need a lot of convincing<div class="sv-option-score">1 pt</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I am cautious — I might try it if someone showed me it was safe and useful<div class="sv-option-score">2 pts</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I am open — I think AI could help, I just need guidance on where to start<div class="sv-option-score">3 pts</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I am eager — I am actively looking to expand how I use AI in my work<div class="sv-option-score">4 pts</div></div>
         </div>
       </div>
 
-      <div class="question">
-        <div class="q-stem"><span class="q-num">10.</span>What is your biggest concern about using AI in your business? <em style="font-weight:300;font-size:8.5pt">(Choose the one that fits best)</em></div>
-        <div class="options">
-          <div class="option"><div class="option-radio"></div>I do not know what AI is or how it works</div>
-          <div class="option"><div class="option-radio"></div>Privacy and data security — I worry about sharing business information</div>
-          <div class="option"><div class="option-radio"></div>Accuracy — I am not sure I can trust AI outputs</div>
-          <div class="option"><div class="option-radio"></div>Cost — I worry AI tools will be too expensive</div>
-          <div class="option"><div class="option-radio"></div>Time — I do not have time to learn something new right now</div>
-          <div class="option"><div class="option-radio"></div>I do not have significant concerns about using AI</div>
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">10.</span>What is your biggest concern about using AI in your business? <em style="font-weight:300;font-size:8.5pt">(Choose the one that fits best)</em></div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio"></div>I do not know what AI is or how it works</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Privacy and data security — I worry about sharing business information</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Accuracy — I am not sure I can trust AI outputs</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Cost — I worry AI tools will be too expensive</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Time — I do not have time to learn something new right now</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I do not have significant concerns about using AI</div>
         </div>
       </div>
 
-      <div class="question">
-        <div class="q-stem"><span class="q-num">11.</span>How would you prefer to learn about AI tools?</div>
-        <div class="options">
-          <div class="option"><div class="option-radio"></div>In-person, with someone guiding me step by step<div class="option-score">1 pt</div></div>
-          <div class="option"><div class="option-radio"></div>One-on-one coaching where I can ask questions at my own pace<div class="option-score">2 pts</div></div>
-          <div class="option"><div class="option-radio"></div>Group workshops with examples from businesses like mine<div class="option-score">2 pts</div></div>
-          <div class="option"><div class="option-radio"></div>Self-paced videos or guides I can follow on my own<div class="option-score">3 pts</div></div>
-          <div class="option"><div class="option-radio"></div>I prefer to just experiment and figure things out myself<div class="option-score">4 pts</div></div>
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">11.</span>How would you prefer to learn about AI tools?</div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio"></div>In-person, with someone guiding me step by step<div class="sv-option-score">1 pt</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>One-on-one coaching where I can ask questions at my own pace<div class="sv-option-score">2 pts</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Group workshops with examples from businesses like mine<div class="sv-option-score">2 pts</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Self-paced videos or guides I can follow on my own<div class="sv-option-score">3 pts</div></div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I prefer to just experiment and figure things out myself<div class="sv-option-score">4 pts</div></div>
         </div>
       </div>
 
-      <div class="question">
-        <div class="q-stem"><span class="q-num">12.</span>What would you most like to accomplish in today's 30-minute session? <em style="font-weight:300;font-size:8.5pt">(Write in your own words)</em></div>
-        <textarea class="open-field" placeholder="e.g. I want to learn how to use AI to write product descriptions, or I want help figuring out which AI tool is right for my business..."></textarea>
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">12.</span>What would you most like to accomplish in today's 30-minute session? <em style="font-weight:300;font-size:8.5pt">(Write in your own words)</em></div>
+        <textarea class="sv-open-field" placeholder="e.g. I want to learn how to use AI to write product descriptions, or I want help figuring out which AI tool is right for my business..."></textarea>
       </div>
     </div>
   </div>
@@ -1544,30 +1546,30 @@
   <!-- ══════════════════════════════════════════════ -->
   <!-- PART E — LANGUAGE & ACCESS                    -->
   <!-- ══════════════════════════════════════════════ -->
-  <div class="survey-section">
-    <div class="section-eyebrow">Part E</div>
-    <div class="section-title">Language &amp; Access</div>
-    <p class="section-intro">This information helps us ensure the session is accessible and delivered in a way that works best for you.</p>
+  <div class="sv-section">
+    <div class="sv-section-eyebrow">Part E</div>
+    <div class="sv-section-title">Language &amp; Access</div>
+    <p class="sv-section-intro">This information helps us ensure the session is accessible and delivered in a way that works best for you.</p>
 
-    <div class="q-group">
-      <div class="question">
-        <div class="q-stem"><span class="q-num">13.</span>What language do you prefer for today's session?</div>
-        <div class="options">
-          <div class="option"><div class="option-radio"></div>English</div>
-          <div class="option"><div class="option-radio"></div>Cantonese</div>
-          <div class="option"><div class="option-radio"></div>Mandarin</div>
-          <div class="option"><div class="option-radio"></div>Spanish</div>
-          <div class="option"><div class="option-radio"></div>Other: ___________________________</div>
+    <div class="sv-q-group">
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">13.</span>What language do you prefer for today's session?</div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio"></div>English</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Cantonese</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Mandarin</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Spanish</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Other: ___________________________</div>
         </div>
       </div>
 
-      <div class="question">
-        <div class="q-stem"><span class="q-num">14.</span>What device will you be using during the session?</div>
-        <div class="options">
-          <div class="option"><div class="option-radio"></div>Smartphone only</div>
-          <div class="option"><div class="option-radio"></div>Laptop or desktop computer</div>
-          <div class="option"><div class="option-radio"></div>Tablet</div>
-          <div class="option"><div class="option-radio"></div>I am not sure / I will not have a device with me</div>
+      <div class="sv-question">
+        <div class="sv-q-stem"><span class="sv-q-num">14.</span>What device will you be using during the session?</div>
+        <div class="sv-options">
+          <div class="sv-option"><div class="sv-option-radio"></div>Smartphone only</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Laptop or desktop computer</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>Tablet</div>
+          <div class="sv-option"><div class="sv-option-radio"></div>I am not sure / I will not have a device with me</div>
         </div>
       </div>
     </div>
@@ -1576,18 +1578,18 @@
   <!-- ══════════════════════════════════════════════ -->
   <!-- CONSULTANT RUBRIC — FOR INTERNAL USE          -->
   <!-- ══════════════════════════════════════════════ -->
-  <div class="survey-section" style="background: #F9F7F4;">
-    <div class="section-eyebrow" style="color: var(--p1);">Consultant Use Only · Do Not Share With Participant</div>
-    <div class="section-title">Evaluation Rubric &amp; Persona Matching</div>
+  <div class="sv-section" style="background: #F9F7F4;">
+    <div class="sv-section-eyebrow" style="color: var(--p1);">Consultant Use Only · Do Not Share With Participant</div>
+    <div class="sv-section-title">Evaluation Rubric &amp; Persona Matching</div>
 
-    <p class="rubric-intro">
-      Score Questions 4, 6, 9, and 11 using the point values shown on the survey. Sum the four scores to produce a total between 4 and 17. Use the band below to assign the participant to a persona. Open-text responses (Q3 and Q12) provide qualitative confirmation — they should corroborate, and occasionally override, the score-based assignment where there is a strong signal.
+    <p class="sv-rubric-intro">
+      Score Questions 4, 6, 9, and 11 using the point values shown on the survey. Sum the four scores to produce a total between 4 and 17. Use the sv-band below to assign the participant to a persona. Open-text responses (Q3 and Q12) provide qualitative confirmation — they should corroborate, and occasionally override, the score-based assignment where there is a strong signal.
     </p>
 
-    <!-- Scoring worksheet -->
-    <div class="worksheet">
-      <div class="worksheet-title">Scoring Worksheet</div>
-      <table class="ws-table">
+    <!-- Scoring sv-worksheet -->
+    <div class="sv-worksheet">
+      <div class="sv-worksheet-title">Scoring Worksheet</div>
+      <table class="sv-ws-table">
         <thead>
           <tr>
             <th>Question</th>
@@ -1623,11 +1625,11 @@
           </tr>
         </tbody>
       </table>
-      <div class="ws-total">TOTAL SCORE (4–17): _____ / 17</div>
+      <div class="sv-ws-total">TOTAL SCORE (4–17): _____ / 17</div>
     </div>
 
-    <!-- Score band table -->
-    <table class="rubric-table">
+    <!-- Score sv-band table -->
+    <table class="sv-rubric-table">
       <thead>
         <tr>
           <th>Score Band</th>
@@ -1670,7 +1672,7 @@
     </table>
 
     <!-- Qualitative signal guide -->
-    <table class="rubric-table">
+    <table class="sv-rubric-table">
       <thead>
         <tr>
           <th>Q5 — Tools used</th>
@@ -1716,78 +1718,78 @@
   <!-- ══════════════════════════════════════════════ -->
   <!-- SESSION DESIGN GUIDANCE                       -->
   <!-- ══════════════════════════════════════════════ -->
-  <div class="survey-section" style="background: #F9F7F4;">
-    <div class="section-eyebrow" style="color: var(--p1);">Consultant Use Only</div>
-    <div class="section-title">Session Design Guidance by Persona</div>
-    <p class="section-intro" style="margin-bottom:0.18in;">Use the matched persona to shape the 30-minute session structure, tone, and focus. These are starting orientations — adapt based on what emerges in the conversation.</p>
+  <div class="sv-section" style="background: #F9F7F4;">
+    <div class="sv-section-eyebrow" style="color: var(--p1);">Consultant Use Only</div>
+    <div class="sv-section-title">Session Design Guidance by Persona</div>
+    <p class="sv-section-intro" style="margin-bottom:0.18in;">Use the matched persona to shape the 30-minute session structure, tone, and focus. These are starting orientations — adapt based on what emerges in the conversation.</p>
 
-    <div class="persona-grid">
+    <div class="sv-persona-grid">
 
-      <div class="persona-match-card">
-        <div class="pmc-header" style="background: var(--p1);">
-          <div class="pmc-num">1</div>
+      <div class="sv-persona-match-card">
+        <div class="sv-pmc-header" style="background: var(--p1);">
+          <div class="sv-pmc-num">1</div>
           <div>
-            <div class="pmc-name">The Structurally Excluded</div>
-            <div class="pmc-tag">Score 4–7 · Entry point session</div>
+            <div class="sv-pmc-name">The Structurally Excluded</div>
+            <div class="sv-pmc-tag">Score 4–7 · Entry point session</div>
           </div>
         </div>
-        <div class="pmc-body" style="background: var(--p1-lt);">
-          <div class="pmc-row"><span class="pmc-label">Focus</span><span>Build trust and demystify AI. Do not rush to tools.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Tone</span><span>Slow, warm, concrete. Use analogies from their sector.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Priority</span><span>Identify <strong>one</strong> daily task where a simple AI tool (e.g. translation, text drafting) could save time. Demonstrate it live.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Takeaway</span><span>One tool, one task, one next step. Written in their language if possible.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Avoid</span><span>Overwhelming with options or technical language. Do not move on until they have tried it once themselves.</span></div>
+        <div class="sv-pmc-body" style="background: var(--p1-lt);">
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Focus</span><span>Build trust and demystify AI. Do not rush to tools.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Tone</span><span>Slow, warm, concrete. Use analogies from their sector.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Priority</span><span>Identify <strong>one</strong> daily task where a simple AI tool (e.g. translation, text drafting) could save time. Demonstrate it live.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Takeaway</span><span>One tool, one task, one next step. Written in their language if possible.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Avoid</span><span>Overwhelming with sv-options or technical language. Do not move on until they have tried it once themselves.</span></div>
         </div>
       </div>
 
-      <div class="persona-match-card">
-        <div class="pmc-header" style="background: var(--p2);">
-          <div class="pmc-num">2</div>
+      <div class="sv-persona-match-card">
+        <div class="sv-pmc-header" style="background: var(--p2);">
+          <div class="sv-pmc-num">2</div>
           <div>
-            <div class="pmc-name">The Cautious Pragmatist</div>
-            <div class="pmc-tag">Score 8–11 · Use-case session</div>
+            <div class="sv-pmc-name">The Cautious Pragmatist</div>
+            <div class="sv-pmc-tag">Score 8–11 · Use-case session</div>
           </div>
         </div>
-        <div class="pmc-body" style="background: var(--p2-lt);">
-          <div class="pmc-row"><span class="pmc-label">Focus</span><span>Address the trust gap with concrete, relevant proof.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Tone</span><span>Practical, peer-oriented. Lead with outcomes, not features.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Priority</span><span>Use Q3 to identify their biggest time cost. Build a live demo around that specific task. Show time saved.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Takeaway</span><span>One tested use case they can replicate this week. Address their stated concern from Q10 directly.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Avoid</span><span>Abstract AI theory. Do not spend time on tools they are unlikely to use.</span></div>
+        <div class="sv-pmc-body" style="background: var(--p2-lt);">
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Focus</span><span>Address the trust gap with concrete, relevant proof.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Tone</span><span>Practical, peer-oriented. Lead with outcomes, not features.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Priority</span><span>Use Q3 to identify their biggest time cost. Build a live demo around that specific task. Show time saved.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Takeaway</span><span>One tested use case they can replicate this week. Address their stated concern from Q10 directly.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Avoid</span><span>Abstract AI theory. Do not spend time on tools they are unlikely to use.</span></div>
         </div>
       </div>
 
-      <div class="persona-match-card">
-        <div class="pmc-header" style="background: var(--p3);">
-          <div class="pmc-num">3</div>
+      <div class="sv-persona-match-card">
+        <div class="sv-pmc-header" style="background: var(--p3);">
+          <div class="sv-pmc-num">3</div>
           <div>
-            <div class="pmc-name">The Emergent Adopter</div>
-            <div class="pmc-tag">Score 12–14 · Workflow session</div>
+            <div class="sv-pmc-name">The Emergent Adopter</div>
+            <div class="sv-pmc-tag">Score 12–14 · Workflow session</div>
           </div>
         </div>
-        <div class="pmc-body" style="background: var(--p3-lt);">
-          <div class="pmc-row"><span class="pmc-label">Focus</span><span>Scaffold from episodic tool use to embedded workflow integration.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Tone</span><span>Energetic, collaborative. They are ready — match their pace.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Priority</span><span>Map their current AI tool use (Q7, Q8). Identify the gap between what they do now and a more systematic workflow. Build a simple prompt or process template together.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Takeaway</span><span>A reusable workflow or prompt template for their top time-cost task.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Avoid</span><span>Covering basics they already know. Start from where they are, not from scratch.</span></div>
+        <div class="sv-pmc-body" style="background: var(--p3-lt);">
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Focus</span><span>Scaffold from episodic tool use to embedded workflow integration.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Tone</span><span>Energetic, collaborative. They are ready — match their pace.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Priority</span><span>Map their current AI tool use (Q7, Q8). Identify the gap between what they do now and a more systematic workflow. Build a simple prompt or process template together.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Takeaway</span><span>A reusable workflow or prompt template for their top time-cost task.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Avoid</span><span>Covering basics they already know. Start from where they are, not from scratch.</span></div>
         </div>
       </div>
 
-      <div class="persona-match-card">
-        <div class="pmc-header" style="background: var(--p4);">
-          <div class="pmc-num">4</div>
+      <div class="sv-persona-match-card">
+        <div class="sv-pmc-header" style="background: var(--p4);">
+          <div class="sv-pmc-num">4</div>
           <div>
-            <div class="pmc-name">The Embedded Practitioner</div>
-            <div class="pmc-tag">Score 15–17 · Strategy session</div>
+            <div class="sv-pmc-name">The Embedded Practitioner</div>
+            <div class="sv-pmc-tag">Score 15–17 · Strategy session</div>
           </div>
         </div>
-        <div class="pmc-body" style="background: var(--p4-lt);">
-          <div class="pmc-row"><span class="pmc-label">Focus</span><span>Optimize, expand, or troubleshoot existing AI use.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Tone</span><span>Peer-to-peer. Treat them as a co-strategist, not a student.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Priority</span><span>Understand their current stack (Q7). Use Q12 to identify their specific bottleneck — likely output quality, automation depth, or tool cost. Explore advanced prompting, chaining, or agentic tools.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Takeaway</span><span>A specific upgrade, workaround, or new tool recommendation tailored to their current setup.</span></div>
-          <div class="pmc-row"><span class="pmc-label">Avoid</span><span>Introductory content. Consider inviting them to join a peer-learning cohort or serve as a program ambassador.</span></div>
+        <div class="sv-pmc-body" style="background: var(--p4-lt);">
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Focus</span><span>Optimize, expand, or troubleshoot existing AI use.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Tone</span><span>Peer-to-peer. Treat them as a co-strategist, not a student.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Priority</span><span>Understand their current stack (Q7). Use Q12 to identify their specific bottleneck — likely output quality, automation depth, or tool cost. Explore advanced prompting, chaining, or agentic tools.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Takeaway</span><span>A specific upgrade, workaround, or new tool recommendation tailored to their current setup.</span></div>
+          <div class="sv-pmc-row"><span class="sv-pmc-label">Avoid</span><span>Introductory content. Consider inviting them to join a peer-learning cohort or serve as a program ambassador.</span></div>
         </div>
       </div>
 
@@ -1795,7 +1797,7 @@
   </div>
 
   <!-- ── FOOTER ── -->
-  <div class="survey-footer">
+  <div class="sv-footer">
     <span><strong>Small Business AI Training Program</strong> · Welcome to Chinatown EAC · 2025</span>
     <span>AI Office Hours · Pre-Session Intake Survey</span>
   </div>
