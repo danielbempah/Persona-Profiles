@@ -3,1806 +3,657 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Participant Persona Profiles — AI Readiness & Digital Adoption Framework</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>AI Training Curriculum — Scope & Sequence | Daniel Quansah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Syne:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy:     #1E2F49;
-    --navy-mid: #2C4266;
-    --gold:     #C9A84C;
-    --gold-lt:  #E8D5A3;
-    --cream:    #F9F6F0;
-    --ink:      #1A1A2E;
-    --slate:    #4A5568;
-    --rule:     #D6CEBC;
-    --p1:       #9B2335;
-    --p2:       #1A5C7A;
-    --p3:       #1B6B3A;
-    --p4:       #5B2D8E;
-    --p1-lt:    #F9EEF0;
-    --p2-lt:    #EBF4F8;
-    --p3-lt:    #EBF5EF;
-    --p4-lt:    #F2EDF8;
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0E0C0A;--ink-mid:#3A3530;--ink-soft:#6E675F;--ink-faint:#B0A99E;
+  --parchment:#F6F1E8;--warm-white:#FDFAF5;--rule:#DDD6CA;
+  --gold:#C4933A;--gold-light:#F5E9CF;
+  --teal:#1A6E68;--teal-light:#D5EDEB;
+  --rust:#B84030;--rust-light:#F5DDD9;
+  --slate:#2D4A6A;--slate-light:#D6E4F0;
+  --amber:#B06A10;--amber-light:#FAF0E0;
+  --plum:#5E3D6B;--plum-light:#E8DDEF;
+  --violet:#5B4FD9;--violet-light:#EAE8FA;
+  --green:#1A9E75;--green-light:#E0F5ED;
+  --blue:#2068B0;--blue-light:#E5F0FA;
+  --ff-display:'Playfair Display',Georgia,serif;
+  --ff-ui:'Syne',system-ui,sans-serif;
+  --ff-body:'Source Serif 4',Georgia,serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-body);background:var(--parchment);color:var(--ink);font-size:15px;line-height:1.7}
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── HEADER ── */
+.doc-header{background:var(--ink);padding:3rem;position:relative;overflow:hidden}
+.doc-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 90% 50%,rgba(196,147,58,.12) 0%,transparent 60%),radial-gradient(ellipse 40% 80% at 5% 80%,rgba(26,110,104,.08) 0%,transparent 55%)}
+.doc-header-inner{position:relative;z-index:1;max-width:920px;margin:0 auto}
+.doc-eyebrow{font-family:var(--ff-ui);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(196,147,58,.7);display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.doc-eyebrow::before{content:'';display:block;width:24px;height:1px;background:rgba(196,147,58,.5)}
+.doc-title{font-family:var(--ff-display);font-size:clamp(1.8rem,4vw,3rem);color:var(--warm-white);line-height:1.1;margin-bottom:.75rem}
+.doc-title em{font-style:italic;color:var(--gold)}
+.doc-subtitle{font-size:.95rem;color:rgba(246,241,232,.6);line-height:1.7;max-width:580px;margin-bottom:2rem}
+.doc-meta-row{display:flex;flex-wrap:wrap;gap:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1)}
+.doc-meta{font-family:var(--ff-ui);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.doc-meta-label{color:rgba(196,147,58,.6);display:block;margin-bottom:2px}
+.doc-meta-value{color:rgba(246,241,232,.75)}
 
-  body {
-    font-family: 'Source Serif 4', Georgia, serif;
-    background: var(--cream);
-    color: var(--ink);
-    font-size: 10.5pt;
-    line-height: 1.7;
-  }
+/* ── FRAMEWORK STRIP ── */
+.fw-strip{background:var(--warm-white);border-bottom:1px solid var(--rule);padding:1.5rem 3rem}
+.fw-inner{max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.fw-item .fw-label{font-family:var(--ff-ui);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px}
+.fw-item .fw-value{font-family:var(--ff-display);font-size:.92rem;font-weight:600;color:var(--ink);line-height:1.3}
+.fw-item .fw-sub{font-size:.78rem;color:var(--ink-soft);line-height:1.4;margin-top:2px}
 
-  /* ── Page wrapper ── */
-  .page {
-    width: 8.5in;
-    margin: 0 auto;
-    background: white;
-    box-shadow: 0 0 40px rgba(0,0,0,0.08);
-  }
+/* ── SECTION WRAPPERS ── */
+.section-wrap{max-width:920px;margin:0 auto;padding:2.5rem 3rem 1rem}
+.section-lbl{font-family:var(--ff-ui);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.section-lbl::before{content:'';display:block;width:24px;height:1px;background:var(--gold)}
+.section-title{font-family:var(--ff-display);font-size:1.6rem;line-height:1.15;color:var(--ink);margin-bottom:.5rem}
+.section-title em{font-style:italic;color:var(--teal)}
+.section-intro{font-size:.9rem;color:var(--ink-soft);line-height:1.75;max-width:680px;margin-bottom:1.5rem}
 
-  /* ── Cover ── */
-  .cover {
-    background: var(--navy);
-    padding: 3in 0.85in 1in;
-    position: relative;
-    overflow: hidden;
-    min-height: 4.2in;
-  }
-  .cover::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 5px;
-    background: var(--gold);
-  }
-  .cover::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; right: -60px;
-    width: 340px; height: 340px;
-    border: 1.5px solid rgba(201,168,76,0.18);
-    border-radius: 50%;
-  }
-  .cover-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 7.5pt;
-    color: var(--gold);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 0.55in;
-  }
-  .cover h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 38pt;
-    font-weight: 700;
-    color: white;
-    line-height: 1.18;
-    margin-bottom: 0.2in;
-    max-width: 5.5in;
-  }
-  .cover h1 em {
-    font-style: italic;
-    color: var(--gold-lt);
-  }
-  .cover-sub {
-    font-family: 'Source Serif 4', serif;
-    font-size: 12pt;
-    color: rgba(255,255,255,0.72);
-    font-weight: 300;
-    margin-bottom: 0.45in;
-  }
-  .cover-meta {
-    display: flex;
-    gap: 0.35in;
-    border-top: 1px solid rgba(201,168,76,0.3);
-    padding-top: 0.22in;
-  }
-  .cover-meta-item {
-    font-family: 'DM Mono', monospace;
-    font-size: 7pt;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 0.06em;
-  }
-  .cover-meta-item strong {
-    display: block;
-    color: rgba(255,255,255,0.85);
-    font-size: 8pt;
-    margin-bottom: 2px;
-  }
+/* ── LEARNING GOALS SECTION ── */
+.lg-wrap{padding:0 3rem 2.5rem;max-width:920px;margin:0 auto}
+.lg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border-radius:10px;overflow:hidden}
+.lg-card{background:var(--warm-white);padding:1.25rem 1.5rem}
+.lg-card-full{grid-column:1/-1;background:var(--warm-white);padding:1.25rem 1.5rem}
+.lg-badge{font-family:var(--ff-ui);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:12px;display:inline-block;margin-bottom:.6rem}
+.lg-heading{font-family:var(--ff-display);font-size:.92rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;line-height:1.3}
+.lg-items{list-style:none;display:flex;flex-direction:column;gap:4px}
+.lg-items li{font-size:.8rem;color:var(--ink-mid);padding:.35rem .6rem .35rem 1.2rem;background:var(--parchment);border-radius:4px;line-height:1.45;position:relative}
+.lg-items li::before{content:'→';position:absolute;left:.4rem;color:var(--gold);font-size:10px}
 
-  /* ── Section wrapper ── */
-  .section {
-    padding: 0.65in 0.85in;
-    border-bottom: 1px solid var(--rule);
-  }
-  .section:last-child { border-bottom: none; }
+/* ── PERSONA SECTION ── */
+.persona-wrap{padding:0 3rem 2.5rem;max-width:920px;margin:0 auto}
+.persona-hint{font-family:var(--ff-ui);font-size:10px;font-weight:600;letter-spacing:.06em;color:var(--ink-faint);margin-bottom:1rem;display:flex;align-items:center;gap:6px}
+.persona-hint svg{flex-shrink:0}
+.persona-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
 
-  /* ── Foundations ── */
-  .foundations-header {
-    display: flex;
-    align-items: baseline;
-    gap: 0.2in;
-    margin-bottom: 0.25in;
-  }
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 7pt;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-  .section-rule {
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20pt;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 0.18in;
-    line-height: 1.25;
-  }
-  .intro-text {
-    font-size: 10.5pt;
-    color: var(--slate);
-    max-width: 6.4in;
-    margin-bottom: 0.3in;
-  }
+/* Flip card */
+.pc{perspective:900px;height:360px;cursor:pointer}
+.pc-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.pc.flipped .pc-inner{transform:rotateY(180deg)}
+.pc-front,.pc-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;overflow-y:auto;border:1px solid var(--rule)}
+.pc-back{transform:rotateY(180deg)}
 
-  /* ── Framework table ── */
-  .fw-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 0.25in;
-    font-size: 9.5pt;
-  }
-  .fw-table thead th {
-    background: var(--navy);
-    color: white;
-    font-family: 'DM Mono', monospace;
-    font-size: 7.5pt;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 9px 14px;
-    text-align: left;
-    font-weight: 500;
-  }
-  .fw-table thead th:first-child {
-    border-bottom: 3px solid var(--gold);
-  }
-  .fw-table tbody tr:nth-child(odd)  { background: white; }
-  .fw-table tbody tr:nth-child(even) { background: var(--cream); }
-  .fw-table tbody td {
-    padding: 11px 14px;
-    vertical-align: top;
-    border-bottom: 1px solid var(--rule);
-    line-height: 1.55;
-  }
-  .fw-table tbody td:first-child {
-    font-weight: 600;
-    color: var(--navy);
-    white-space: nowrap;
-    width: 1.8in;
-    font-size: 9pt;
-  }
-  .fw-note {
-    font-size: 8.5pt;
-    color: var(--slate);
-    font-style: italic;
-    border-left: 3px solid var(--gold-lt);
-    padding-left: 0.15in;
-    line-height: 1.6;
-  }
+/* Front face */
+.pc-front{background:var(--warm-white);display:flex;flex-direction:column}
+.pc-front-top{padding:1rem 1.1rem .75rem;flex:1}
+.pc-accent{height:3px;width:100%}
+.pc-num{font-family:var(--ff-display);font-size:1.6rem;font-weight:700;color:var(--rule);line-height:1;margin:0 0 6px}
+.pc-name{font-family:var(--ff-display);font-size:.95rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:4px}
+.pc-tagline{font-size:.78rem;color:var(--ink-soft);font-style:italic;line-height:1.4;margin-bottom:.75rem}
+.pc-badges{display:flex;flex-direction:column;gap:4px}
+.pc-badge{font-family:var(--ff-ui);font-size:8.5px;font-weight:600;padding:2px 7px;border-radius:10px;border:1px solid var(--rule);color:var(--ink-soft);display:inline-block;width:fit-content}
+.pc-signals{list-style:none;padding:.75rem 1.1rem 0;display:flex;flex-direction:column;gap:3px;border-top:1px solid var(--rule)}
+.pc-signals li{font-size:.73rem;color:var(--ink-soft);padding:.3rem .5rem .3rem 1rem;background:var(--parchment);border-radius:3px;line-height:1.35;position:relative}
+.pc-signals li::before{content:'·';position:absolute;left:.35rem;color:var(--gold)}
+.pc-flip-hint{font-family:var(--ff-ui);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);padding:.6rem 1.1rem;display:flex;align-items:center;gap:5px;border-top:1px solid var(--rule);margin-top:auto}
 
-  /* ── Persona pages ── */
-  .persona-section {
-    padding: 0.55in 0.85in 0.6in;
-    border-bottom: 1px solid var(--rule);
-  }
-  .persona-header {
-    display: flex;
-    align-items: stretch;
-    margin-bottom: 0.32in;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  }
-  .persona-number {
-    width: 0.7in;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 28pt;
-    font-weight: 700;
-    color: white;
-    flex-shrink: 0;
-  }
-  .persona-header-text {
-    flex: 1;
-    padding: 0.18in 0.22in;
-  }
-  .persona-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 16pt;
-    font-weight: 700;
-    color: white;
-    line-height: 1.2;
-    margin-bottom: 4px;
-  }
-  .persona-tagline {
-    font-family: 'Source Serif 4', serif;
-    font-size: 9.5pt;
-    color: rgba(255,255,255,0.78);
-    font-style: italic;
-    font-weight: 300;
-  }
+/* Back face */
+.pc-back{display:flex;flex-direction:column;overflow-y:auto}
+.pc-back-top{padding:.85rem 1.1rem .65rem;flex-shrink:0}
+.pc-back-badge{font-family:var(--ff-ui);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:12px;display:inline-block;margin-bottom:.5rem}
+.pc-back-focus{font-family:var(--ff-display);font-size:.88rem;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:.3rem}
+.pc-back-sub{font-size:.75rem;color:var(--ink-soft);line-height:1.4;font-style:italic}
+.pc-back-section{padding:.5rem 1.1rem;border-top:1px solid var(--rule);flex-shrink:0}
+.pc-back-lbl{font-family:var(--ff-ui);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.pc-back-list{list-style:none;display:flex;flex-direction:column;gap:3px}
+.pc-back-list li{font-size:.73rem;color:var(--ink-mid);padding:.3rem .5rem .3rem 1rem;background:var(--parchment);border-radius:3px;line-height:1.35;position:relative}
+.pc-back-list li::before{content:'✓';position:absolute;left:.3rem;color:var(--teal);font-size:9px}
+.pc-back-flip{font-family:var(--ff-ui);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);padding:.55rem 1.1rem;border-top:1px solid var(--rule);margin-top:auto;flex-shrink:0;display:flex;align-items:center;gap:5px}
 
-  /* ── Two-column layout ── */
-  .persona-body {
-    display: grid;
-    grid-template-columns: 2.1in 1fr;
-    gap: 0.35in;
-    align-items: start;
-  }
+/* ── PHASE HEADER ── */
+.phase-wrap{max-width:920px;margin:0 auto;padding:2.5rem 3rem .75rem}
+.phase-header{display:flex;align-items:center;gap:12px}
+.phase-num{font-family:var(--ff-ui);font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:4px 12px;border-radius:20px}
+.phase-title{font-family:var(--ff-display);font-size:1.1rem;font-weight:600;color:var(--ink)}
+.phase-desc{font-size:.82rem;color:var(--ink-soft);margin-left:auto;font-style:italic}
 
-  /* ── Profile card ── */
-  .profile-card {
-    border: 1.5px solid var(--rule);
-    border-radius: 6px;
-    overflow: hidden;
-    font-size: 8.5pt;
-  }
-  .profile-card-header {
-    padding: 8px 12px;
-    font-family: 'DM Mono', monospace;
-    font-size: 7pt;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: white;
-    font-weight: 500;
-  }
-  .profile-card table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .profile-card table tr:nth-child(odd)  { background: white; }
-  .profile-card table tr:nth-child(even) { background: var(--cream); }
-  .profile-card table td {
-    padding: 8px 10px;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-    line-height: 1.45;
-  }
-  .profile-card table tr:last-child td { border-bottom: none; }
-  .profile-card table td:first-child {
-    font-family: 'DM Mono', monospace;
-    font-size: 6.5pt;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #888;
-    width: 42%;
-    font-weight: 500;
-    padding-right: 6px;
-  }
-  .profile-card table td:last-child {
-    font-weight: 600;
-    color: var(--navy);
-    font-size: 8.5pt;
-  }
+/* ── COLLAPSIBLE MODULE CARDS ── */
+.modules-wrap{padding:0 3rem 2rem;max-width:920px;margin:0 auto}
+.mod-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin-bottom:1rem;box-shadow:0 2px 12px rgba(14,12,10,.04);transition:box-shadow .2s}
+.mod-card:hover{box-shadow:0 4px 20px rgba(14,12,10,.07)}
+.mod-top{padding:1.1rem 1.5rem;display:flex;align-items:center;gap:1rem;cursor:pointer;user-select:none;position:relative}
+.mod-accent{position:absolute;top:0;left:0;bottom:0;width:4px}
+.mod-badge{font-family:var(--ff-ui);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px;flex-shrink:0;white-space:nowrap}
+.mod-hd{flex:1;min-width:0}
+.mod-title{font-family:var(--ff-display);font-size:1rem;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:2px}
+.mod-tagline{font-size:.78rem;color:var(--ink-soft);line-height:1.45;font-style:italic}
+.mod-chips{display:flex;flex-wrap:wrap;gap:5px;flex-shrink:0}
+.chip{font-family:var(--ff-ui);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:10px;white-space:nowrap}
+.c-sync{background:var(--plum-light);color:var(--plum)}
+.c-async{background:var(--teal-light);color:var(--teal)}
+.c-person{background:var(--gold-light);color:var(--amber)}
+.c-dur{background:var(--rule);color:var(--ink-mid)}
+.mod-arrow{font-size:13px;color:var(--ink-faint);transition:transform .25s;flex-shrink:0;margin-left:.25rem}
+.mod-card.open .mod-arrow{transform:rotate(180deg)}
 
-  /* ── Right column content ── */
-  .persona-content {}
+.mod-body{display:none;padding:1.25rem 1.5rem;border-top:1px solid var(--rule);display:none}
+.mod-card.open .mod-body{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.mod-full{grid-column:1/-1}
+.cell-lbl{font-family:var(--ff-ui);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.45rem;display:flex;align-items:center;gap:6px}
+.cell-lbl::before{content:'';display:block;width:12px;height:1px;background:var(--gold)}
+.oc-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.oc-list li{font-size:.82rem;color:var(--ink-mid);padding:.42rem .6rem .42rem 1.25rem;background:var(--parchment);border-radius:4px;line-height:1.45;position:relative}
+.oc-list li::before{content:'✓';position:absolute;left:.4rem;color:var(--teal);font-size:10px;top:.45rem}
+.oc-tag{color:var(--rust);font-size:.72rem;font-style:italic}
+.pill-row{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.6rem}
+.pill{font-family:var(--ff-ui);font-size:9px;font-weight:600;padding:3px 7px;border-radius:9px;border:1px solid var(--rule);background:var(--parchment);color:var(--ink-soft)}
+.pill.on{background:var(--gold-light);border-color:rgba(196,147,58,.3);color:var(--amber)}
+.ic{background:var(--parchment);border:1px solid var(--rule);border-radius:5px;padding:.75rem .9rem;font-size:.8rem;color:var(--ink-mid);line-height:1.6}
+.ic strong{font-family:var(--ff-ui);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:3px}
+.ic.equity{border-left:3px solid var(--teal);background:var(--teal-light)}
+.ic.equity strong{color:var(--teal)}
+.ic.assess{border-left:3px solid var(--gold)}
+.ic.reflect{border-left:3px solid var(--plum);background:var(--plum-light)}
+.ic.reflect strong{color:var(--plum)}
+.ic+.ic{margin-top:.5rem}
+.further-lbl{font-family:var(--ff-ui);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);display:block;margin-top:.6rem;margin-bottom:2px}
 
-  .content-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 6.8pt;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--slate);
-    margin-bottom: 6px;
-    margin-top: 18px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .content-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
-  .content-label:first-child { margin-top: 0; }
+/* ── LEGEND ── */
+.legend{background:var(--ink);padding:2.5rem 3rem;margin-top:2rem}
+.legend-inner{max-width:920px;margin:0 auto}
+.legend-lbl{font-family:var(--ff-ui);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(196,147,58,.7);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.legend-lbl::before{content:'';display:block;width:20px;height:1px;background:rgba(196,147,58,.5)}
+.legend-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.legend-group-title{font-family:var(--ff-display);font-size:.88rem;color:rgba(246,241,232,.75);margin-bottom:.6rem;font-style:italic}
+.legend-items{display:flex;flex-direction:column;gap:5px}
+.legend-item{display:flex;align-items:flex-start;gap:8px;font-size:.78rem;color:rgba(246,241,232,.5);line-height:1.4}
+.ldot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.legend-item strong{color:rgba(246,241,232,.75)}
 
-  .theory-text {
-    font-size: 9.5pt;
-    color: var(--slate);
-    line-height: 1.7;
-    text-align: justify;
-  }
+/* ── FOOTER ── */
+.doc-footer{background:var(--warm-white);border-top:1px solid var(--rule);padding:1.25rem 3rem}
+.doc-footer-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.doc-footer-text{font-family:var(--ff-ui);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+.doc-footer-text strong{color:var(--gold)}
 
-  .vignette-block {
-    border-left: 3px solid;
-    padding: 0.14in 0.16in;
-    margin: 0;
-    border-radius: 0 4px 4px 0;
-  }
-  .vignette-block p {
-    font-family: 'Source Serif 4', serif;
-    font-size: 9.5pt;
-    font-style: italic;
-    color: var(--slate);
-    line-height: 1.72;
-    text-align: justify;
-  }
-
-  /* ── Signals grid ── */
-  .signals-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-    margin-top: 2px;
-  }
-  .signal-pill {
-    background: var(--cream);
-    border-radius: 4px;
-    padding: 7px 10px 7px 28px;
-    font-size: 8.5pt;
-    color: var(--navy);
-    line-height: 1.4;
-    position: relative;
-  }
-  .signal-pill::before {
-    content: '';
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-  }
-
-  /* ── Spectrum bars ── */
-  .bars-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.12in;
-    margin-bottom: 0.18in;
-  }
-  .bar-wrap {}
-  .bar-label-top {
-    font-family: 'DM Mono', monospace;
-    font-size: 6.5pt;
-    color: var(--slate);
-    letter-spacing: 0.08em;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-  }
-  .bar-track {
-    display: flex;
-    gap: 3px;
-    height: 22px;
-  }
-  .bar-seg {
-    flex: 1;
-    border-radius: 2px;
-    background: #DDE3EA;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'DM Mono', monospace;
-    font-size: 5.8pt;
-    color: var(--navy);
-    letter-spacing: 0.02em;
-    transition: background 0.2s;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0 2px;
-  }
-  .bar-seg.active {
-    color: white;
-    font-weight: 500;
-  }
-  .bar-seg.past { background: #B5C0CC; color: var(--navy); }
-
-  /* ── Closing section ── */
-  .closing-box {
-    background: var(--navy);
-    border-radius: 6px;
-    padding: 0.3in 0.35in;
-    margin-bottom: 0.3in;
-  }
-  .closing-box p {
-    color: rgba(255,255,255,0.85);
-    font-size: 10pt;
-    line-height: 1.72;
-    text-align: justify;
-  }
-
-  /* ── Summary matrix ── */
-  .matrix-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 8.5pt;
-  }
-  .matrix-table thead th {
-    background: var(--navy);
-    color: white;
-    font-family: 'DM Mono', monospace;
-    font-size: 6.8pt;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 9px 12px;
-    text-align: left;
-    font-weight: 500;
-    border-bottom: 2px solid var(--gold);
-  }
-  .matrix-table tbody td {
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-    line-height: 1.5;
-  }
-  .matrix-table tbody tr:nth-child(even) td { background: var(--cream); }
-  .matrix-table tbody td:first-child {
-    font-weight: 700;
-    font-size: 8.5pt;
-  }
-  .matrix-fig-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 7pt;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--slate);
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  /* ── Footer ── */
-  .doc-footer {
-    background: var(--navy);
-    padding: 0.22in 0.85in;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .doc-footer span {
-    font-family: 'DM Mono', monospace;
-    font-size: 7pt;
-    color: rgba(255,255,255,0.45);
-    letter-spacing: 0.06em;
-  }
-  .doc-footer strong { color: rgba(255,255,255,0.75); }
-
-  @media print {
-    body { background: white; }
-    .page { box-shadow: none; width: 100%; }
-    .persona-section, .section { page-break-inside: avoid; }
-  }
-
-/* ── SURVEY STYLES (sv- prefixed) ── */
-
-  :root {
-    --navy:    #1E2F49;
-    --navy2:   #263d61;
-    --gold:    #C9A84C;
-    --gold-lt: #F2E8CC;
-    --cream:   #F8F5EF;
-    --ink:     #1C1C2E;
-    --slate:   #4A5568;
-    --rule:    #DDD6C8;
-    --white:   #FFFFFF;
-    --p1:      #9B2335;
-    --p2:      #1A5C7A;
-    --p3:      #1B6B3A;
-    --p4:      #5B2D8E;
-    --p1-lt:   #FDF1F2;
-    --p2-lt:   #EBF4F8;
-    --p3-lt:   #EBF6EF;
-    --p4-lt:   #F3EEF9;
-    --radius:  8px;
-    --shadow:  0 2px 16px rgba(30,47,73,0.09);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Source Serif 4', Georgia, serif;
-    background: var(--cream);
-    color: var(--ink);
-    font-size: 10.5pt;
-    line-height: 1.65;
-  }
-
-  .sv-page { width: 8.5in; margin: 0 auto; background: white; }
-
-  /* ── HEADER ── */
-  .sv-header {
-    background: var(--navy);
-    padding: 0.55in 0.75in 0.45in;
-    position: relative;
-    overflow: hidden;
-  }
-  .sv-header::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: var(--gold);
-  }
-  .sv-header::after {
-    content: '';
-    position: absolute;
-    right: -80px; bottom: -80px;
-    width: 260px; height: 260px;
-    border: 1px solid rgba(201,168,76,0.15);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  .sv-header-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 7pt;
-    color: var(--gold);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 0.12in;
-  }
-  .sv-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 26pt;
-    font-weight: 700;
-    color: white;
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-  .sv-header h1 em { font-style: italic; color: var(--gold-lt); }
-  .sv-header-sub {
-    font-size: 9.5pt;
-    color: rgba(255,255,255,0.65);
-    font-weight: 300;
-    max-width: 5.5in;
-    line-height: 1.6;
-  }
-
-  /* ── SECTION WRAPPER ── */
-  .sv-section {
-    padding: 0.45in 0.75in;
-    border-bottom: 1px solid var(--rule);
-  }
-  .sv-section:last-child { border-bottom: none; }
-
-  .sv-section-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 7pt;
-    color: var(--gold);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  .sv-section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 15pt;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 10px;
-  }
-  .sv-section-intro {
-    font-size: 9.5pt;
-    color: var(--slate);
-    line-height: 1.7;
-    margin-bottom: 0.22in;
-    max-width: 6.5in;
-  }
-
-  /* ── INSTRUCTIONS BOX ── */
-  .sv-instructions {
-    background: var(--navy);
-    border-radius: var(--radius);
-    padding: 0.22in 0.28in;
-    margin-bottom: 0.3in;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0.2in;
-  }
-  .sv-instr-item { }
-  .sv-instr-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 18pt;
-    font-weight: 500;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .sv-instr-text {
-    font-size: 8.5pt;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.55;
-  }
-
-  /* ── QUESTION BLOCKS ── */
-  .sv-q-group {
-    margin-bottom: 0.28in;
-  }
-  .sv-q-group-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 6.8pt;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--slate);
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 5px;
-    margin-bottom: 0.14in;
-  }
-
-  .sv-question {
-    margin-bottom: 0.18in;
-    page-break-inside: avoid;
-  }
-  .sv-q-stem {
-    font-size: 9.5pt;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 8px;
-    line-height: 1.55;
-  }
-  .sv-q-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 8pt;
-    color: var(--gold);
-    font-weight: 500;
-    margin-right: 6px;
-  }
-
-  /* Radio options */
-  .sv-options { display: flex; flex-direction: column; gap: 5px; }
-  .sv-option {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 7px 12px;
-    border: 1px solid var(--rule);
-    border-radius: 5px;
-    background: var(--cream);
-    font-size: 9pt;
-    color: var(--slate);
-    line-height: 1.45;
-  }
-  .sv-option-radio {
-    width: 14px; height: 14px;
-    border: 1.5px solid #B0BAC6;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .sv-option-score {
-    font-family: 'DM Mono', monospace;
-    font-size: 7pt;
-    color: #AAA;
-    margin-left: auto;
-    flex-shrink: 0;
-    padding-left: 8px;
-    white-space: nowrap;
-  }
-
-  /* Open text field */
-  .sv-open-field {
-    width: 100%;
-    border: 1px solid var(--rule);
-    border-radius: 5px;
-    padding: 10px 12px;
-    background: var(--cream);
-    font-family: 'Source Serif 4', serif;
-    font-size: 9pt;
-    color: var(--slate);
-    min-height: 0.55in;
-    resize: vertical;
-    line-height: 1.5;
-  }
-
-  /* ── SCORING RUBRIC ── */
-  .sv-rubric-intro {
-    font-size: 9pt;
-    color: var(--slate);
-    line-height: 1.65;
-    margin-bottom: 0.2in;
-    border-left: 3px solid var(--gold);
-    padding-left: 0.14in;
-    font-style: italic;
-  }
-
-  .sv-rubric-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 8.5pt;
-    margin-bottom: 0.25in;
-  }
-  .sv-rubric-table thead th {
-    background: var(--navy);
-    color: white;
-    font-family: 'DM Mono', monospace;
-    font-size: 7pt;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 8px 11px;
-    text-align: left;
-    font-weight: 500;
-    border-bottom: 2px solid var(--gold);
-  }
-  .sv-rubric-table thead th:first-child { width: 1.1in; }
-  .sv-rubric-table thead th:nth-child(2) { width: 0.8in; }
-  .sv-rubric-table tbody td {
-    padding: 9px 11px;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-    line-height: 1.5;
-  }
-  .sv-rubric-table tbody tr:nth-child(even) td { background: var(--cream); }
-  .sv-rubric-table tbody td:first-child {
-    font-weight: 600;
-    font-size: 8.5pt;
-  }
-  .sv-rubric-table tbody td:nth-child(2) {
-    font-family: 'DM Mono', monospace;
-    font-size: 8pt;
-    font-weight: 500;
-    text-align: center;
-  }
-
-  /* ── PERSONA MATCH CARDS ── */
-  .sv-persona-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.15in;
-    margin-bottom: 0.22in;
-  }
-  .sv-persona-match-card {
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-  .sv-pmc-header {
-    padding: 9px 13px;
-    display: flex;
-    align-items: center;
-    gap: 9px;
-  }
-  .sv-pmc-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 16pt;
-    font-weight: 700;
-    color: white;
-    line-height: 1;
-    opacity: 0.9;
-  }
-  .sv-pmc-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 10pt;
-    font-weight: 700;
-    color: white;
-    line-height: 1.2;
-  }
-  .sv-pmc-tag {
-    font-size: 7.5pt;
-    color: rgba(255,255,255,0.72);
-    font-style: italic;
-    font-weight: 300;
-  }
-  .sv-pmc-body {
-    padding: 10px 13px;
-    font-size: 8.5pt;
-    color: var(--slate);
-    line-height: 1.55;
-  }
-  .sv-pmc-body strong { color: var(--navy); font-weight: 600; }
-  .sv-pmc-row {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 4px;
-    align-items: baseline;
-  }
-  .sv-pmc-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 6.5pt;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #AAA;
-    flex-shrink: 0;
-    width: 0.75in;
-  }
-
-  /* ── SCORING WORKSHEET ── */
-  .sv-worksheet {
-    background: var(--cream);
-    border-radius: var(--radius);
-    padding: 0.25in 0.3in;
-    margin-bottom: 0.22in;
-  }
-  .sv-worksheet-title {
-    font-family: 'DM Mono', monospace;
-    font-size: 7.5pt;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--navy);
-    margin-bottom: 0.14in;
-    font-weight: 500;
-  }
-  .sv-ws-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 8.5pt;
-  }
-  .sv-ws-table th {
-    font-family: 'DM Mono', monospace;
-    font-size: 6.8pt;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--slate);
-    text-align: left;
-    padding: 5px 8px;
-    border-bottom: 1.5px solid var(--rule);
-    font-weight: 500;
-  }
-  .sv-ws-table td {
-    padding: 7px 8px;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: middle;
-    color: var(--slate);
-    line-height: 1.45;
-  }
-  .sv-ws-table td:last-child {
-    font-family: 'DM Mono', monospace;
-    font-size: 8pt;
-    text-align: center;
-    color: #AAA;
-  }
-  .sv-ws-total {
-    font-family: 'DM Mono', monospace;
-    font-size: 9pt;
-    font-weight: 500;
-    color: var(--navy);
-    text-align: right;
-    margin-top: 8px;
-  }
-
-  /* ── SESSION DESIGN GUIDANCE ── */
-  .sv-session-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.15in;
-  }
-  .sv-session-card {
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1px solid var(--rule);
-    font-size: 8.5pt;
-  }
-  .sv-sc-header {
-    padding: 8px 13px;
-    font-family: 'DM Mono', monospace;
-    font-size: 7pt;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: white;
-    font-weight: 500;
-  }
-  .sv-sc-body {
-    padding: 10px 13px;
-    color: var(--slate);
-    line-height: 1.6;
-  }
-  .sv-sc-body ul {
-    padding-left: 1em;
-    margin-top: 4px;
-  }
-  .sv-sc-body li { margin-bottom: 3px; }
-  .sv-sc-body strong { color: var(--navy); }
-
-  /* ── FOOTER ── */
-  .sv-footer {
-    background: var(--navy);
-    padding: 0.18in 0.75in;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .sv-footer span {
-    font-family: 'DM Mono', monospace;
-    font-size: 7pt;
-    color: rgba(255,255,255,0.4);
-    letter-spacing: 0.06em;
-  }
-  .sv-footer strong { color: rgba(255,255,255,0.7); }
-
-  /* Score band chips */
-  .sv-band {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 3px;
-    font-family: 'DM Mono', monospace;
-    font-size: 7.5pt;
-    font-weight: 500;
-    color: white;
-    margin-right: 4px;
-  }
-
-  @media print {
-    body { background: white; }
-    .sv-page { box-shadow: none; width: 100%; }
-    .sv-section { page-break-inside: avoid; }
-  }
-
+/* ── RESPONSIVE ── */
+@media(max-width:760px){
+  .doc-header,.fw-strip,.section-wrap,.lg-wrap,.persona-wrap,.phase-wrap,.modules-wrap,.legend,.doc-footer{padding-left:1.25rem;padding-right:1.25rem}
+  .fw-inner{grid-template-columns:1fr 1fr}
+  .lg-grid{grid-template-columns:1fr}
+  .lg-card-full{grid-column:1}
+  .persona-grid{grid-template-columns:1fr 1fr}
+  .pc{height:360px}
+  .mod-card.open .mod-body{grid-template-columns:1fr}
+  .mod-full{grid-column:1}
+  .legend-grid{grid-template-columns:1fr}
+  .phase-desc{display:none}
+}
+@media(max-width:480px){
+  .persona-grid{grid-template-columns:1fr}
+}
+@media print{
+  body{font-size:11px}
+  .mod-card{break-inside:avoid}
+  .mod-card .mod-body{display:grid !important}
+  .pc-inner{transform:none !important}
+  .pc-back{display:none}
+  .phase-wrap{break-before:page}
+}
 </style>
 </head>
 <body>
-<div class="page">
 
-  <!-- ── COVER ── -->
-  <div class="cover">
-    <div class="cover-eyebrow">Small Business AI Training Program</div>
-    <h1>Participant<br><em>Persona Profiles</em></h1>
-    <div class="cover-sub">AI Readiness &amp; Digital Adoption Framework</div>
-    <div class="cover-meta">
-      <div class="cover-meta-item"><strong>Survey Sample</strong>n = 537 SMB respondents</div>
-      <div class="cover-meta-item"><strong>Languages</strong>English · Spanish · Chinese</div>
-      <div class="cover-meta-item"><strong>EAC Centers</strong>25 across New York State</div>
-      <div class="cover-meta-item"><strong>Author</strong>Daniel Quansah · Bard / CEU</div>
+<!-- HEADER -->
+<header class="doc-header">
+  <div class="doc-header-inner">
+    <div class="doc-eyebrow">Curriculum Artifact · Capstone Research · 2026</div>
+    <h1 class="doc-title">AI Training Curriculum<br><em>Scope &amp; Sequence</em></h1>
+    <p class="doc-subtitle">A six-module, blended-delivery AI training curriculum designed for immigrant-owned micro and small businesses, grounded in Kolb's Experiential Learning Cycle and Fink's Taxonomy of Significant Learning.</p>
+    <div class="doc-meta-row">
+      <div class="doc-meta"><span class="doc-meta-label">Researcher</span><span class="doc-meta-value">Daniel Kwaku Bempah Quansah</span></div>
+      <div class="doc-meta"><span class="doc-meta-label">Institution</span><span class="doc-meta-value">Bard College / Central European University</span></div>
+      <div class="doc-meta"><span class="doc-meta-label">Program Partner</span><span class="doc-meta-value">Welcome to Chinatown · NYS EAC Program</span></div>
+      <div class="doc-meta"><span class="doc-meta-label">Modules</span><span class="doc-meta-value">6 across three phases</span></div>
+      <div class="doc-meta"><span class="doc-meta-label">Languages</span><span class="doc-meta-value">English · Spanish · Chinese</span></div>
     </div>
   </div>
+</header>
 
-  <!-- ── THEORETICAL FOUNDATIONS ── -->
-  <div class="section">
-    <div class="foundations-header">
-      <span class="section-label">Theoretical Foundations</span>
-      <div class="section-rule"></div>
+<!-- FRAMEWORK STRIP -->
+<div class="fw-strip">
+  <div class="fw-inner">
+    <div class="fw-item">
+      <div class="fw-label">Pedagogical Framework 1</div>
+      <div class="fw-value">Kolb's Experiential Learning Cycle</div>
+      <div class="fw-sub">Concrete experience → Reflective observation → Abstract conceptualisation → Active experimentation</div>
     </div>
-    <p class="intro-text">
-      In program design and curriculum development, it is important to recognize that even though similar, program beneficiaries are not a monolith. While they may share surface-level similarities, meaningful differences in experience, capacity, and perception shape how they engage with new tools and ideas. For this project, personas were created based on AI/digital literacy, prior usage, attitudes toward AI and digital tools, preferred learning styles, and organizational characteristics. This segmentation is grounded in four complementary theoretical frameworks.
-    </p>
-    <table class="fw-table">
-      <thead>
-        <tr>
-          <th>Framework</th>
-          <th>Key Contribution to Persona Design</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Rogers' Diffusion of Innovations</td>
-          <td>Focuses on how the perceived value and impact of new technology, coupled with organizational culture, influences rate of adoption. Used here as a spectrum rather than rigid categories — describing psychological and behavioral readiness to adopt new technologies.</td>
-        </tr>
-        <tr>
-          <td>Digital Divide Theory (Jan van Dijk)</td>
-          <td>Provides a layered understanding of technological access, distinguishing between motivational, material, skills-based, and usage barriers. Demonstrates that access to tools alone does not ensure meaningful adoption — a critical lens for this immigrant-owned micro-enterprise population.</td>
-        </tr>
-        <tr>
-          <td>BCG AI Adoption Stage Model</td>
-          <td>Maps the path to AI adoption into five stages progressing from traditional workflows (Information Assistance, Task Assistance, Delegation) to AI agentic workflows (Semiautonomous Collaboration, Autonomous Orchestration). Matches five distinct employee personas to each stage, adapted here for small business operators.</td>
-        </tr>
-        <tr>
-          <td>Curry's Learning Styles Onion Model</td>
-          <td>Layers instructional preference (preferred choice of learning environment), social interaction preference during learning, information processing style (individual intellectual approach to processing information), and cognitive personality style (core personality and how it influences learning). Informs how potential participants will engage with the program — used as tendencies, not deterministic categories.</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="fw-note">
-      Taken together, these frameworks informed the development of four participant personas derived from small business survey data. These personas are neither exhaustive nor mutually exclusive; rather, they serve as flexible guides, acknowledging that individuals may exhibit overlap, hybridity, and variation in practice.
-    </p>
-  </div>
-
-  <!-- ══════════════════════════════════════════════════ -->
-  <!-- PERSONA 1 — THE STRUCTURALLY EXCLUDED             -->
-  <!-- ══════════════════════════════════════════════════ -->
-  <div class="persona-section">
-    <div class="persona-header" style="background: var(--p1);">
-      <div class="persona-number" style="background: rgba(0,0,0,0.18);">1</div>
-      <div class="persona-header-text">
-        <div class="persona-title">The Structurally Excluded</div>
-        <div class="persona-tagline">Proximity, not aptitude, is the barrier.</div>
-      </div>
+    <div class="fw-item">
+      <div class="fw-label">Pedagogical Framework 2</div>
+      <div class="fw-value">Fink's Taxonomy of Significant Learning</div>
+      <div class="fw-sub">Foundational knowledge · Application · Integration · Human dimension · Caring · Learning how to learn</div>
     </div>
-
-    <div class="bars-row">
-      <div class="bar-wrap">
-        <div class="bar-label-top">Rogers' Adoption Spectrum</div>
-        <div class="bar-track">
-          <div class="bar-seg active" style="background: var(--p1);">Laggard</div>
-          <div class="bar-seg">Late Maj.</div>
-          <div class="bar-seg">Early Maj.</div>
-          <div class="bar-seg">E. Adopter</div>
-          <div class="bar-seg">Innovator</div>
-        </div>
-      </div>
-      <div class="bar-wrap">
-        <div class="bar-label-top">BCG AI Adoption Stage</div>
-        <div class="bar-track">
-          <div class="bar-seg active" style="background: var(--p1);">Info Asst.</div>
-          <div class="bar-seg">Task Asst.</div>
-          <div class="bar-seg">Delegation</div>
-          <div class="bar-seg">Semi-Auto</div>
-          <div class="bar-seg">Autonomous</div>
-        </div>
-      </div>
+    <div class="fw-item">
+      <div class="fw-label">Delivery Model</div>
+      <div class="fw-value">Blended — sync, async &amp; in-person</div>
+      <div class="fw-sub">Facilitator-led cohort delivery through the NYS EAC network</div>
     </div>
-
-    <div class="persona-body">
-      <div>
-        <div class="profile-card">
-          <div class="profile-card-header" style="background: var(--p1);">Persona Profile</div>
-          <table>
-            <tr><td>Archetype</td><td>Laggard (structural)</td></tr>
-            <tr><td>Barrier Type</td><td>Access &amp; Language — first-order, material divide</td></tr>
-            <tr><td>BCG Stage</td><td>Information Assistance (ceiling, not floor)</td></tr>
-            <tr><td>Learning Style</td><td>Observational, in-person, socially embedded, language-appropriate environment required</td></tr>
-            <tr><td>Training Priority</td><td>Bilingual, hands-on, community-anchored delivery</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="persona-content">
-        <div class="content-label">Theoretical Composite</div>
-        <p class="theory-text">
-          On Rogers' spectrum, this persona sits firmly at the Laggard end — but not because of temperament. The Digital Divide literature (van Dijk) is indispensable here: the barrier is first-order, rooted in access to infrastructure, language, and institutional trust, not in psychological resistance. BCG's Stage 1 (Information Assistance) is the ceiling, not the floor — most in this group have not meaningfully tried AI and cannot yet distinguish it from a generic internet search. Through Curry's Onion Model, instructional preference sits at the outermost layer: they require in-person, socially embedded, language-appropriate environments before any deeper learning can take hold. The challenge is not capability. It is proximity — to the right tool, at the right moment, with the right guide.
-        </p>
-
-        <div class="content-label">Persona POV</div>
-        <div class="vignette-block" style="border-color: var(--p1); background: var(--p1-lt);">
-          <p>Lucy has been running the laundromat for eleven years. The phone never stops. There is always something — a supplier, a customer, a broken machine — pulling her attention in three directions at once. Someone once showed her a translation app and she used it for a week, then forgot. AI, to her, is a word that belongs to a different world: sleek offices, fast people, English speakers. Not hers. Not yet. She is not afraid of it — she just cannot see where the door is.</p>
-        </div>
-
-        <div class="content-label">Key Differentiating Signals</div>
-        <div class="signals-grid">
-          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>Digital comfort:</strong> Struggles with or actively avoids technology</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>AI tools tried:</strong> None, or Google Translate only</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>Learning mode:</strong> In-person, one-on-one, in native language</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>Primary challenge:</strong> Customer acquisition, managing finances, finding time</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>Language:</strong> Non-English preference — Spanish or Chinese</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p1);"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--p1);"></span><strong>Business sector:</strong> Personal services, food/retail — high operational load, low administrative slack</div>
-        </div>
-      </div>
+    <div class="fw-item">
+      <div class="fw-label">Equity Design Principles</div>
+      <div class="fw-value">Multilingual · Cost-tiered · Community-anchored</div>
+      <div class="fw-sub">Materials in English, Spanish, and Chinese · Free and freemium tools prioritised throughout</div>
     </div>
   </div>
-
-  <!-- ══════════════════════════════════════════════════ -->
-  <!-- PERSONA 2 — THE CAUTIOUS PRAGMATIST               -->
-  <!-- ══════════════════════════════════════════════════ -->
-  <div class="persona-section">
-    <div class="persona-header" style="background: var(--p2);">
-      <div class="persona-number" style="background: rgba(0,0,0,0.18);">2</div>
-      <div class="persona-header-text">
-        <div class="persona-title">The Cautious Pragmatist</div>
-        <div class="persona-tagline">Aware. Not yet committed. Waiting for proof.</div>
-      </div>
-    </div>
-
-    <div class="bars-row">
-      <div class="bar-wrap">
-        <div class="bar-label-top">Rogers' Adoption Spectrum</div>
-        <div class="bar-track">
-          <div class="bar-seg past">Laggard</div>
-          <div class="bar-seg past">Late Maj.</div>
-          <div class="bar-seg active" style="background: var(--p2);">Early Maj.</div>
-          <div class="bar-seg">E. Adopter</div>
-          <div class="bar-seg">Innovator</div>
-        </div>
-      </div>
-      <div class="bar-wrap">
-        <div class="bar-label-top">BCG AI Adoption Stage</div>
-        <div class="bar-track">
-          <div class="bar-seg past">Info Asst.</div>
-          <div class="bar-seg active" style="background: var(--p2);">Task Asst.</div>
-          <div class="bar-seg">Delegation</div>
-          <div class="bar-seg">Semi-Auto</div>
-          <div class="bar-seg">Autonomous</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="persona-body">
-      <div>
-        <div class="profile-card">
-          <div class="profile-card-header" style="background: var(--p2);">Persona Profile</div>
-          <table>
-            <tr><td>Archetype</td><td>Early / Late Majority</td></tr>
-            <tr><td>Barrier Type</td><td>Motivational divide — belief AI could help, but no proof yet</td></tr>
-            <tr><td>BCG Stage</td><td>Task Assistance to early Delegation — episodic, not embedded</td></tr>
-            <tr><td>Learning Style</td><td>Concrete, sequential demonstration — the "so what for my business" must be immediate and visible</td></tr>
-            <tr><td>Training Priority</td><td>Peer-to-peer examples, live use cases from similar businesses</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="persona-content">
-        <div class="content-label">Theoretical Composite</div>
-        <p class="theory-text">
-          This is the most populous persona in the sample — the quiet middle. On Rogers' spectrum, they sit in the Early/Late Majority zone: aware, not yet committed. BCG places them at Stage 2–3 (Task Assistance to early Delegation) — they have tried a tool, perhaps ChatGPT for a caption or Canva's AI features for a flyer, but the use has been episodic, not embedded. Van Dijk's motivational divide is the operative barrier: they believe AI could help, but they need proof — proof it is safe, proof it saves time, proof it is not going to replace something they have built carefully. Through Curry's model, their information processing style favors concrete, sequential demonstration over abstract concept — the "so what for my business" must be immediate and visible before they will commit sustained attention.
-        </p>
-
-        <div class="content-label">Persona POV</div>
-        <div class="vignette-block" style="border-color: var(--p2); background: var(--p2-lt);">
-          <p>Mustafa knows what ChatGPT is. He has used it once, maybe twice, to draft an email he was not sure how to word. The result was decent. He closed the tab and went back to work. It is not that he distrusts it. It is that trust, for him, is built slowly — through evidence that accumulates gradually, through use. Show him one business like his, in his neighborhood, that uses AI every week and saves four hours. That might be enough.</p>
-        </div>
-
-        <div class="content-label">Key Differentiating Signals</div>
-        <div class="signals-grid">
-          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>Digital comfort:</strong> Comfortable — can figure most things out</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>AI tools tried:</strong> 1–2 tools (ChatGPT, Grammarly, or Canva AI features)</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>AI uses:</strong> Writing/editing text, social media content — isolated, not systematic</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>Motivators:</strong> "Seeing examples from businesses like mine" and "proof it will save me time"</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>Concerns:</strong> Accuracy of outputs, data privacy and security</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p2);"><strong>Learning preference:</strong> In-person workshop, one-on-one coaching, working alongside someone</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════════════ -->
-  <!-- PERSONA 3 — THE EMERGENT ADOPTER                  -->
-  <!-- ══════════════════════════════════════════════════ -->
-  <div class="persona-section">
-    <div class="persona-header" style="background: var(--p3);">
-      <div class="persona-number" style="background: rgba(0,0,0,0.18);">3</div>
-      <div class="persona-header-text">
-        <div class="persona-title">The Emergent Adopter</div>
-        <div class="persona-tagline">Experimenting at the edges. Scaffolding needed.</div>
-      </div>
-    </div>
-
-    <div class="bars-row">
-      <div class="bar-wrap">
-        <div class="bar-label-top">Rogers' Adoption Spectrum</div>
-        <div class="bar-track">
-          <div class="bar-seg past">Laggard</div>
-          <div class="bar-seg past">Late Maj.</div>
-          <div class="bar-seg past">Early Maj.</div>
-          <div class="bar-seg active" style="background: var(--p3);">E. Adopter</div>
-          <div class="bar-seg">Innovator</div>
-        </div>
-      </div>
-      <div class="bar-wrap">
-        <div class="bar-label-top">BCG AI Adoption Stage</div>
-        <div class="bar-track">
-          <div class="bar-seg past">Info Asst.</div>
-          <div class="bar-seg past">Task Asst.</div>
-          <div class="bar-seg active" style="background: var(--p3);">Delegation</div>
-          <div class="bar-seg">Semi-Auto</div>
-          <div class="bar-seg">Autonomous</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="persona-body">
-      <div>
-        <div class="profile-card">
-          <div class="profile-card-header" style="background: var(--p3);">Persona Profile</div>
-          <table>
-            <tr><td>Archetype</td><td>Early Adopter</td></tr>
-            <tr><td>Barrier Type</td><td>Skills gap — van Dijk's second-order divide; access is no longer the constraint</td></tr>
-            <tr><td>BCG Stage</td><td>Delegation — defined tasks assigned to AI, workflow not yet restructured</td></tr>
-            <tr><td>Learning Style</td><td>Active, peer-oriented, experiential — learns by doing and breaking things before reading the manual</td></tr>
-            <tr><td>Training Priority</td><td>Guided scaffolding — workflow integration, structured experimentation</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="persona-content">
-        <div class="content-label">Theoretical Composite</div>
-        <p class="theory-text">
-          Here, the Rogers curve accelerates. These respondents sit in the Early Adopter zone — they have crossed the threshold from awareness to active experimentation, but are still building fluency. BCG Stage 3 (Delegation) is their current home: they assign defined tasks to AI — email drafts, image generation, research queries — but have not yet restructured their workflow around it. The Digital Divide is no longer the primary barrier; the gap is now one of skills (van Dijk's second-order divide) rather than access. Through Curry's model, their social interaction preference is active and peer-oriented, with a strong information processing tendency toward active experimentation — they learn by doing, by breaking things, by trying a new tool before reading the manual. What they need is not permission. It is scaffolding.
-        </p>
-
-        <div class="content-label">Persona POV</div>
-        <div class="vignette-block" style="border-color: var(--p3); background: var(--p3-lt);">
-          <p>Bridget runs the tutoring business alone — curriculum, marketing, invoicing, everything. She found Claude six months ago and it felt, in her own words, like getting an extra pair of hands. Not a replacement. An assistant. She has started to map out where else it might fit, poking at the edges of her workflow like someone testing ice before stepping onto a frozen pond. She is ready to go further. She just needs to know the ice will hold.</p>
-        </div>
-
-        <div class="content-label">Key Differentiating Signals</div>
-        <div class="signals-grid">
-          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>Digital comfort:</strong> Very comfortable — enjoys using technology</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>AI tools tried:</strong> 3 or more (ChatGPT, Claude, Canva AI, Grammarly, Gemini)</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>AI uses:</strong> Writing, research, social media, customer communications — multi-purpose but not yet systematic</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>Motivators:</strong> "Having someone walk me through it" and free or low-cost tools</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>Learning preference:</strong> Self-paced online videos, virtual workshops, coaching — multimodal</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p3);"><strong>Primary time sink:</strong> Content creation and administrative tasks — areas most ripe for AI delegation</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════════════ -->
-  <!-- PERSONA 4 — THE EMBEDDED PRACTITIONER             -->
-  <!-- ══════════════════════════════════════════════════ -->
-  <div class="persona-section">
-    <div class="persona-header" style="background: var(--p4);">
-      <div class="persona-number" style="background: rgba(0,0,0,0.18);">4</div>
-      <div class="persona-header-text">
-        <div class="persona-title">The Embedded Practitioner</div>
-        <div class="persona-tagline">AI is not a tool. It is the ambient condition of work.</div>
-      </div>
-    </div>
-
-    <div class="bars-row">
-      <div class="bar-wrap">
-        <div class="bar-label-top">Rogers' Adoption Spectrum</div>
-        <div class="bar-track">
-          <div class="bar-seg past">Laggard</div>
-          <div class="bar-seg past">Late Maj.</div>
-          <div class="bar-seg past">Early Maj.</div>
-          <div class="bar-seg past">E. Adopter</div>
-          <div class="bar-seg active" style="background: var(--p4);">Innovator</div>
-        </div>
-      </div>
-      <div class="bar-wrap">
-        <div class="bar-label-top">BCG AI Adoption Stage</div>
-        <div class="bar-track">
-          <div class="bar-seg past">Info Asst.</div>
-          <div class="bar-seg past">Task Asst.</div>
-          <div class="bar-seg past">Delegation</div>
-          <div class="bar-seg active" style="background: var(--p4);">Semi-Auto</div>
-          <div class="bar-seg">Autonomous</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="persona-body">
-      <div>
-        <div class="profile-card">
-          <div class="profile-card-header" style="background: var(--p4);">Persona Profile</div>
-          <table>
-            <tr><td>Archetype</td><td>Innovator / Early Adopter</td></tr>
-            <tr><td>Barrier Type</td><td>Output quality and reliability — not access, confidence, or motivation</td></tr>
-            <tr><td>BCG Stage</td><td>Semiautonomous Collaboration — AI woven into core workflows, not merely reached for</td></tr>
-            <tr><td>Learning Style</td><td>Theorist and reflector — thinks carefully about AI behavior, pushes back when outputs disappoint, iterates deliberately</td></tr>
-            <tr><td>Training Priority</td><td>Advanced automation, agentic workflows, output evaluation</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="persona-content">
-        <div class="content-label">Theoretical Composite</div>
-        <p class="theory-text">
-          Rare in this sample — but present. On Rogers' curve, these are Innovators and Early Adopters who have already crossed into BCG's Stage 4 (Semiautonomous Collaboration): AI is not a tool they reach for occasionally, it is woven into how work gets done. Van Dijk's divide barely registers; their barriers, where they exist, are about quality and reliability of outputs — not access or confidence. Through Curry's Onion Model, their cognitive personality style reflects strong internal processing: they think carefully about what AI is doing, push back when outputs disappoint, and iterate deliberately. They are the peer models BCG identifies as catalysts for organizational adoption. In a small-business context, they are the proof of concept the program can point to.
-        </p>
-
-        <div class="content-label">Persona POV</div>
-        <div class="vignette-block" style="border-color: var(--p4); background: var(--p4-lt);">
-          <p>The translation tools came first — a practical decision, a bridge between languages in a city where commerce runs on code-switching. Then came the content generation, then the automations. Now AI is less a feature of how Lee works and more the ambient condition of it, like electricity — unremarkable until it is gone. She does not evangelize. She just produces, reliably, more than she once thought was possible for one person.</p>
-        </div>
-
-        <div class="content-label">Key Differentiating Signals</div>
-        <div class="signals-grid">
-          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>Digital comfort:</strong> Very comfortable — enjoys using technology</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>AI tools tried:</strong> 4 or more tools across multiple categories</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>AI uses:</strong> Full stack — writing, research, image generation, customer communications, translation, automation</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>Concerns (if any):</strong> Cost of AI tools and output accuracy at advanced use cases — not adoption itself</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>Learning preference:</strong> Self-directed; interested in automation, workflow integration, and advanced use</div>
-          <div class="signal-pill" style="border-left: 3px solid var(--p4);"><strong>Business sector:</strong> Education, professional services, creative industries — knowledge-intensive sectors</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── CLOSING SYNTHESIS ── -->
-  <div class="section">
-    <div class="foundations-header">
-      <span class="section-label">Synthesis</span>
-      <div class="section-rule"></div>
-    </div>
-    <div class="section-title">The Logic Holding This Together</div>
-    <div class="closing-box">
-      <p>The spine of this framework is the recognition that readiness and access are not the same thing — and that conflating them is how programs design solutions for the wrong problem. A structurally excluded owner and a cautious pragmatist may both show low AI adoption, but one needs a language-accessible entry point and the other needs a compelling use case. The four-persona model honors that distinction. What it reveals — that a demographic breakdown cannot — is that this population is not simply "behind." It is differentiated, and the shape of its differentiation follows the contours of structural inequality as much as individual psychology. The intervention logic flows directly from this: different personas require different doors, not a bigger megaphone at the same door.</p>
-    </div>
-
-    <div class="matrix-fig-label">Figure 1 — Persona Summary Matrix</div>
-    <table class="matrix-table">
-      <thead>
-        <tr>
-          <th>Persona</th>
-          <th>Rogers Stage</th>
-          <th>BCG Stage</th>
-          <th>Primary Barrier</th>
-          <th>Training Priority</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="color: var(--p1); border-left: 3px solid var(--p1);">The Structurally Excluded</td>
-          <td>Laggard</td>
-          <td>Information Assistance</td>
-          <td>Access &amp; Language</td>
-          <td>Bilingual, in-person, community-anchored</td>
-        </tr>
-        <tr>
-          <td style="color: var(--p2); border-left: 3px solid var(--p2);">The Cautious Pragmatist</td>
-          <td>Early / Late Majority</td>
-          <td>Task Assistance → Delegation</td>
-          <td>Motivation &amp; Trust</td>
-          <td>Peer examples, live business use cases</td>
-        </tr>
-        <tr>
-          <td style="color: var(--p3); border-left: 3px solid var(--p3);">The Emergent Adopter</td>
-          <td>Early Adopter</td>
-          <td>Delegation</td>
-          <td>Skills gap (2nd-order)</td>
-          <td>Guided scaffolding, workflow integration</td>
-        </tr>
-        <tr>
-          <td style="color: var(--p4); border-left: 3px solid var(--p4);">The Embedded Practitioner</td>
-          <td>Innovator</td>
-          <td>Semiautonomous Collaboration</td>
-          <td>Output quality only</td>
-          <td>Advanced automation, agentic workflows</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ── FOOTER ── -->
-  <div class="doc-footer">
-    <span><strong>Daniel Quansah</strong> · Bard College / CEU Masters Capstone · 2025</span>
-    <span>Small Business AI Training Program · n = 537 · 25 EAC Centers</span>
-  </div>
-
 </div>
 
-  <!-- ════════════════════════════════════════════════════════ -->
-  <!-- PART 2 — AI OFFICE HOURS: PRE-SESSION INTAKE SURVEY    -->
-  <!-- ════════════════════════════════════════════════════════ -->
-  <div style="height:4px; background: #C9A84C;"></div>
-
-
-<div class="sv-page">
-
-  <!-- ── HEADER ── -->
-  <div class="sv-header">
-    <div class="sv-header-eyebrow">Small Business AI Training Program · Welcome to Chinatown EAC</div>
-    <h1>AI Office Hours<br><em>Pre-Session Intake Survey</em></h1>
-    <div class="sv-header-sub">This short survey helps your consultant understand your business and AI experience before your 30-minute session, so we can make the most of your time together. It takes approximately 5–7 minutes to complete.</div>
-  </div>
-
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- PART A — BUSINESS PROFILE                     -->
-  <!-- ══════════════════════════════════════════════ -->
-  <div class="sv-section">
-    <div class="sv-section-eyebrow">Part A</div>
-    <div class="sv-section-title">About Your Business</div>
-    <p class="sv-section-intro">These questions help us understand the context of your work. There are no right or wrong answers.</p>
-
-    <div class="sv-q-group">
-      <div class="sv-q-group-label">Basic Information</div>
-
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">1.</span>What type of business do you operate?</div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio"></div>Food &amp; beverage (restaurant, café, catering, food production)</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Retail (clothing, gifts, household goods, specialty items)</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Personal services (salon, barber, cleaning, alterations)</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Professional / business services (accounting, legal, consulting, real estate)</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Education or tutoring</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Health &amp; wellness (massage, acupuncture, fitness, childcare)</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Creative / media (design, photography, content, arts)</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Construction / trades</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Other: ___________________________</div>
-        </div>
-      </div>
-
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">2.</span>How many people work in your business, including yourself?</div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio"></div>Just me</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>2–5 people</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>6–10 people</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>More than 10 people</div>
-        </div>
-      </div>
-
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">3.</span>What are the top 1–2 tasks that consume most of your time each week? <em style="font-weight:300;font-size:8.5pt">(Write in your own words)</em></div>
-        <textarea class="sv-open-field" placeholder="e.g. answering customer messages, making social media posts, doing invoices..."></textarea>
-      </div>
+<!-- LEARNING GOALS -->
+<div class="section-wrap">
+  <div class="section-lbl">Learning Goals</div>
+  <h2 class="section-title">What learners should <em>become</em></h2>
+  <p class="section-intro">Derived from Fink's Taxonomy of Significant Learning. These goals move beyond information transmission toward application, integration, self-awareness, and the development of new values — reinforcing one another across the six modules.</p>
+</div>
+<div class="lg-wrap">
+  <div class="lg-grid">
+    <div class="lg-card">
+      <span class="lg-badge" style="background:var(--violet-light);color:var(--violet)">Foundational Knowledge &amp; Skills</span>
+      <div class="lg-heading">Understanding and using AI in simple, informed ways</div>
+      <ul class="lg-items">
+        <li>Understand the different types of AI — generative AI, retrieval-augmented generation, agentic systems — and how they work in plain terms</li>
+        <li>Use common AI tools at varying levels of sophistication and make informed decisions about which tools to use for different tasks</li>
+      </ul>
+    </div>
+    <div class="lg-card">
+      <span class="lg-badge" style="background:var(--green-light);color:var(--green)">Integration Goals</span>
+      <div class="lg-heading">Connecting AI to business realities</div>
+      <ul class="lg-items">
+        <li>Understand how AI is already shaping their lives, businesses, and industries — and how this may evolve</li>
+        <li>Identify where AI can be meaningfully integrated into their own workflows</li>
+      </ul>
+    </div>
+    <div class="lg-card">
+      <span class="lg-badge" style="background:var(--rust-light);color:var(--rust)">Application Goals</span>
+      <div class="lg-heading">Evaluating risk and building strategy</div>
+      <ul class="lg-items">
+        <li>Evaluate the risks and implications of AI use — including accuracy, privacy, labour displacement, and bias</li>
+        <li>Develop strategies for incorporating AI in ways that augment, rather than replace, human effort and ingenuity</li>
+      </ul>
+    </div>
+    <div class="lg-card">
+      <span class="lg-badge" style="background:var(--blue-light);color:var(--blue)">Caring Goals</span>
+      <div class="lg-heading">Developing responsibility and civic agency</div>
+      <ul class="lg-items">
+        <li>Develop a sense of responsibility around AI use and understand their role in shaping how these technologies are developed and governed</li>
+      </ul>
+    </div>
+    <div class="lg-card">
+      <span class="lg-badge" style="background:var(--plum-light);color:var(--plum)">Learning How to Learn</span>
+      <div class="lg-heading">Building capacity beyond the program</div>
+      <ul class="lg-items">
+        <li>Build the capacity to continue developing their knowledge and practical use of AI independently beyond the duration of this program</li>
+      </ul>
+    </div>
+    <div class="lg-card" style="background:var(--gold-light);border:1px solid rgba(196,147,58,.2)">
+      <span class="lg-badge" style="background:var(--gold-light);color:var(--amber);border:1px solid rgba(196,147,58,.3)">Assessment Approach</span>
+      <div class="lg-heading" style="color:var(--amber)">Educative, not auditive</div>
+      <ul class="lg-items">
+        <li><strong style="color:var(--ink)">Forward-looking</strong> — apply knowledge to realistic future-facing situations; simulate real business scenarios</li>
+        <li><strong style="color:var(--ink)">Self-assessment</strong> — metacognitive reflection at the close of each module; shared at the start of the next</li>
+      </ul>
     </div>
   </div>
-
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- PART B — DIGITAL COMFORT                      -->
-  <!-- ══════════════════════════════════════════════ -->
-  <div class="sv-section">
-    <div class="sv-section-eyebrow">Part B · Scored</div>
-    <div class="sv-section-title">Digital Comfort &amp; Tool Use</div>
-    <p class="sv-section-intro">These questions assess how comfortable you are with digital tools in general — not just AI.</p>
-
-    <div class="sv-q-group">
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">4.</span>How comfortable are you using digital tools (smartphone apps, email, social media, online payments) to run your business?</div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio"></div>I struggle with technology and prefer to avoid it when I can<div class="sv-option-score">1 pt</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I can use basic tools but often need help with new ones<div class="sv-option-score">2 pts</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I'm comfortable — I can usually figure things out on my own<div class="sv-option-score">3 pts</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I'm very comfortable and enjoy trying new digital tools<div class="sv-option-score">4 pts</div></div>
-        </div>
-      </div>
-
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">5.</span>Which of the following digital tools do you currently use for your business? <em style="font-weight:300;font-size:8.5pt">(Select all that apply)</em></div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Email (Gmail, Outlook)</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Social media (Instagram, Facebook, WeChat, WhatsApp)</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Online payments (Venmo, Square, PayPal, Stripe)</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Scheduling or booking tools (Calendly, Acuity, Google Calendar)</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Accounting or invoicing software (QuickBooks, Wave, FreshBooks)</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Website (Wix, Squarespace, Shopify, WordPress)</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>None of the above</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- PART C — AI FAMILIARITY                       -->
-  <!-- ══════════════════════════════════════════════ -->
-  <div class="sv-section">
-    <div class="sv-section-eyebrow">Part C · Scored</div>
-    <div class="sv-section-title">AI Familiarity &amp; Experience</div>
-    <p class="sv-section-intro">These questions assess your prior exposure to AI tools specifically. "AI tools" includes things like ChatGPT, Google Gemini, translation apps, Canva's AI features, and similar.</p>
-
-    <div class="sv-q-group">
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">6.</span>Which best describes your experience with AI tools so far?</div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio"></div>I have never used an AI tool and am not sure what they are<div class="sv-option-score">1 pt</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I have heard of AI tools but have not tried one yet<div class="sv-option-score">2 pts</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I have tried one or two AI tools a few times<div class="sv-option-score">3 pts</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I use AI tools regularly — at least a few times a week<div class="sv-option-score">4 pts</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>AI tools are a core part of how I run my business every day<div class="sv-option-score">5 pts</div></div>
-        </div>
-      </div>
-
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">7.</span>Which AI tools have you tried or used? <em style="font-weight:300;font-size:8.5pt">(Select all that apply)</em></div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>None</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Google Translate or DeepL (translation tools)</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>ChatGPT</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Google Gemini</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Claude (Anthropic)</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Microsoft Copilot</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Grammarly</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Canva AI features</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Other: ___________________________</div>
-        </div>
-      </div>
-
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">8.</span>If you have used AI tools, what have you used them for? <em style="font-weight:300;font-size:8.5pt">(Select all that apply — skip if you have not used any)</em></div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Writing or editing text (emails, captions, descriptions)</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Translation</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Answering questions or doing research</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Creating images or visual content</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Social media content or marketing</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Customer communications or responses</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>Scheduling, invoicing, or business automation</div>
-          <div class="sv-option"><div class="sv-option-radio" style="border-radius:2px"></div>I have not used AI tools</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- PART D — ATTITUDES & GOALS                    -->
-  <!-- ══════════════════════════════════════════════ -->
-  <div class="sv-section">
-    <div class="sv-section-eyebrow">Part D · Scored</div>
-    <div class="sv-section-title">Attitudes &amp; Session Goals</div>
-    <p class="sv-section-intro">These questions help us understand how you feel about AI and what you hope to get from the session.</p>
-
-    <div class="sv-q-group">
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">9.</span>How do you feel about using AI tools in your business?</div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio"></div>I am not ready — I have concerns and would need a lot of convincing<div class="sv-option-score">1 pt</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I am cautious — I might try it if someone showed me it was safe and useful<div class="sv-option-score">2 pts</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I am open — I think AI could help, I just need guidance on where to start<div class="sv-option-score">3 pts</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I am eager — I am actively looking to expand how I use AI in my work<div class="sv-option-score">4 pts</div></div>
-        </div>
-      </div>
-
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">10.</span>What is your biggest concern about using AI in your business? <em style="font-weight:300;font-size:8.5pt">(Choose the one that fits best)</em></div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio"></div>I do not know what AI is or how it works</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Privacy and data security — I worry about sharing business information</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Accuracy — I am not sure I can trust AI outputs</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Cost — I worry AI tools will be too expensive</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Time — I do not have time to learn something new right now</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I do not have significant concerns about using AI</div>
-        </div>
-      </div>
-
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">11.</span>How would you prefer to learn about AI tools?</div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio"></div>In-person, with someone guiding me step by step<div class="sv-option-score">1 pt</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>One-on-one coaching where I can ask questions at my own pace<div class="sv-option-score">2 pts</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Group workshops with examples from businesses like mine<div class="sv-option-score">2 pts</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Self-paced videos or guides I can follow on my own<div class="sv-option-score">3 pts</div></div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I prefer to just experiment and figure things out myself<div class="sv-option-score">4 pts</div></div>
-        </div>
-      </div>
-
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">12.</span>What would you most like to accomplish in today's 30-minute session? <em style="font-weight:300;font-size:8.5pt">(Write in your own words)</em></div>
-        <textarea class="sv-open-field" placeholder="e.g. I want to learn how to use AI to write product descriptions, or I want help figuring out which AI tool is right for my business..."></textarea>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- PART E — LANGUAGE & ACCESS                    -->
-  <!-- ══════════════════════════════════════════════ -->
-  <div class="sv-section">
-    <div class="sv-section-eyebrow">Part E</div>
-    <div class="sv-section-title">Language &amp; Access</div>
-    <p class="sv-section-intro">This information helps us ensure the session is accessible and delivered in a way that works best for you.</p>
-
-    <div class="sv-q-group">
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">13.</span>What language do you prefer for today's session?</div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio"></div>English</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Cantonese</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Mandarin</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Spanish</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Other: ___________________________</div>
-        </div>
-      </div>
-
-      <div class="sv-question">
-        <div class="sv-q-stem"><span class="sv-q-num">14.</span>What device will you be using during the session?</div>
-        <div class="sv-options">
-          <div class="sv-option"><div class="sv-option-radio"></div>Smartphone only</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Laptop or desktop computer</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>Tablet</div>
-          <div class="sv-option"><div class="sv-option-radio"></div>I am not sure / I will not have a device with me</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- CONSULTANT RUBRIC — FOR INTERNAL USE          -->
-  <!-- ══════════════════════════════════════════════ -->
-  <div class="sv-section" style="background: #F9F7F4;">
-    <div class="sv-section-eyebrow" style="color: var(--p1);">Consultant Use Only · Do Not Share With Participant</div>
-    <div class="sv-section-title">Evaluation Rubric &amp; Persona Matching</div>
-
-    <p class="sv-rubric-intro">
-      Score Questions 4, 6, 9, and 11 using the point values shown on the survey. Sum the four scores to produce a total between 4 and 17. Use the band below to assign the participant to a persona. Open-text responses (Q3 and Q12) provide qualitative confirmation — they should corroborate, and occasionally override, the score-based assignment where there is a strong signal.
-    </p>
-
-    <!-- Scoring worksheet -->
-    <div class="sv-worksheet">
-      <div class="sv-worksheet-title">Scoring Worksheet</div>
-      <table class="sv-ws-table">
-        <thead>
-          <tr>
-            <th>Question</th>
-            <th>What it measures</th>
-            <th>Max pts</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Q4</strong> — Digital comfort</td>
-            <td>General technology readiness; van Dijk first-order access</td>
-            <td style="text-align:center; font-family:'DM Mono',monospace;">4</td>
-            <td>___</td>
-          </tr>
-          <tr>
-            <td><strong>Q6</strong> — AI familiarity</td>
-            <td>Prior AI exposure; BCG adoption stage proxy</td>
-            <td style="text-align:center; font-family:'DM Mono',monospace;">5</td>
-            <td>___</td>
-          </tr>
-          <tr>
-            <td><strong>Q9</strong> — Attitude toward AI</td>
-            <td>Motivational divide; Rogers psychological readiness</td>
-            <td style="text-align:center; font-family:'DM Mono',monospace;">4</td>
-            <td>___</td>
-          </tr>
-          <tr>
-            <td><strong>Q11</strong> — Learning preference</td>
-            <td>Curry instructional preference; scaffolding need</td>
-            <td style="text-align:center; font-family:'DM Mono',monospace;">4</td>
-            <td>___</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="sv-ws-total">TOTAL SCORE (4–17): _____ / 17</div>
-    </div>
-
-    <!-- Score band table -->
-    <table class="sv-rubric-table">
-      <thead>
-        <tr>
-          <th>Score Band</th>
-          <th>Range</th>
-          <th>Persona Match</th>
-          <th>Primary Signal Pattern</th>
-          <th>Override Triggers (Q3 / Q12)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="color: var(--p1);">Band 1</td>
-          <td style="color: var(--p1);">4 – 7</td>
-          <td><strong style="color:var(--p1)">The Structurally Excluded</strong></td>
-          <td>Q4 = 1–2; Q6 = 1–2; Q9 = 1–2; prefers in-person, native-language delivery. Likely no AI tools tried.</td>
-          <td>Upgrade to Band 2 if Q12 shows specific, task-oriented AI curiosity despite low scores.</td>
-        </tr>
-        <tr>
-          <td style="color: var(--p2);">Band 2</td>
-          <td style="color: var(--p2);">8 – 11</td>
-          <td><strong style="color:var(--p2)">The Cautious Pragmatist</strong></td>
-          <td>Q4 = 3; Q6 = 2–3; Q9 = 2–3; tried 1–2 tools; motivated by peer examples and proof of value.</td>
-          <td>Downgrade to Band 1 if Q3 reveals very high operational load with no digital slack. Upgrade to Band 3 if Q7 shows 3+ tools.</td>
-        </tr>
-        <tr>
-          <td style="color: var(--p3);">Band 3</td>
-          <td style="color: var(--p3);">12 – 14</td>
-          <td><strong style="color:var(--p3)">The Emergent Adopter</strong></td>
-          <td>Q4 = 3–4; Q6 = 3–4; Q9 = 3–4; using 3+ tools; primary barrier is skills, not access or motivation.</td>
-          <td>Upgrade to Band 4 if Q12 mentions automation, workflow integration, or multi-tool orchestration.</td>
-        </tr>
-        <tr>
-          <td style="color: var(--p4);">Band 4</td>
-          <td style="color: var(--p4);">15 – 17</td>
-          <td><strong style="color:var(--p4)">The Embedded Practitioner</strong></td>
-          <td>Q4 = 4; Q6 = 4–5; Q9 = 4; self-directed learner; 4+ tools used; concerns about output quality, not adoption.</td>
-          <td>Downgrade to Band 3 if Q12 reveals the high score reflects comfort but not actual integration into daily workflow.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Qualitative signal guide -->
-    <table class="sv-rubric-table">
-      <thead>
-        <tr>
-          <th>Q5 — Tools used</th>
-          <th>Supporting signal</th>
-          <th>Q8 — AI use cases</th>
-          <th>Supporting signal</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>0–1 tools selected</td>
-          <td>Corroborates Band 1–2</td>
-          <td>None / translation only</td>
-          <td>Corroborates Band 1</td>
-        </tr>
-        <tr>
-          <td>2–3 tools selected</td>
-          <td>Corroborates Band 2–3</td>
-          <td>Writing or social media only</td>
-          <td>Corroborates Band 2</td>
-        </tr>
-        <tr>
-          <td>4–5 tools selected</td>
-          <td>Corroborates Band 3</td>
-          <td>3–4 use cases (multi-purpose)</td>
-          <td>Corroborates Band 3</td>
-        </tr>
-        <tr>
-          <td>6+ tools selected</td>
-          <td>Corroborates Band 4</td>
-          <td>5+ use cases incl. automation</td>
-          <td>Corroborates Band 4</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Language flag -->
-    <div style="margin: 0.18in 0; padding: 0.14in 0.18in; background: #FFF8EC; border-left: 3px solid var(--gold); border-radius: 4px; font-size: 8.5pt; color: var(--slate); line-height: 1.6;">
-      <strong style="color:var(--navy);">⚑ Language flag:</strong> If Q13 indicates a non-English language preference, assign the participant to Band 1 or 2 regardless of numeric score, and flag for bilingual consultant assignment or interpreter support. Language access is a structural barrier that the score alone does not fully capture.
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- SESSION DESIGN GUIDANCE                       -->
-  <!-- ══════════════════════════════════════════════ -->
-  <div class="sv-section" style="background: #F9F7F4;">
-    <div class="sv-section-eyebrow" style="color: var(--p1);">Consultant Use Only</div>
-    <div class="sv-section-title">Session Design Guidance by Persona</div>
-    <p class="sv-section-intro" style="margin-bottom:0.18in;">Use the matched persona to shape the 30-minute session structure, tone, and focus. These are starting orientations — adapt based on what emerges in the conversation.</p>
-
-    <div class="sv-persona-grid">
-
-      <div class="sv-persona-match-card">
-        <div class="sv-pmc-header" style="background: var(--p1);">
-          <div class="sv-pmc-num">1</div>
-          <div>
-            <div class="sv-pmc-name">The Structurally Excluded</div>
-            <div class="sv-pmc-tag">Score 4–7 · Entry point session</div>
-          </div>
-        </div>
-        <div class="sv-pmc-body" style="background: var(--p1-lt);">
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Focus</span><span>Build trust and demystify AI. Do not rush to tools.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Tone</span><span>Slow, warm, concrete. Use analogies from their sector.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Priority</span><span>Identify <strong>one</strong> daily task where a simple AI tool (e.g. translation, text drafting) could save time. Demonstrate it live.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Takeaway</span><span>One tool, one task, one next step. Written in their language if possible.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Avoid</span><span>Overwhelming with options or technical language. Do not move on until they have tried it once themselves.</span></div>
-        </div>
-      </div>
-
-      <div class="sv-persona-match-card">
-        <div class="sv-pmc-header" style="background: var(--p2);">
-          <div class="sv-pmc-num">2</div>
-          <div>
-            <div class="sv-pmc-name">The Cautious Pragmatist</div>
-            <div class="sv-pmc-tag">Score 8–11 · Use-case session</div>
-          </div>
-        </div>
-        <div class="sv-pmc-body" style="background: var(--p2-lt);">
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Focus</span><span>Address the trust gap with concrete, relevant proof.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Tone</span><span>Practical, peer-oriented. Lead with outcomes, not features.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Priority</span><span>Use Q3 to identify their biggest time cost. Build a live demo around that specific task. Show time saved.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Takeaway</span><span>One tested use case they can replicate this week. Address their stated concern from Q10 directly.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Avoid</span><span>Abstract AI theory. Do not spend time on tools they are unlikely to use.</span></div>
-        </div>
-      </div>
-
-      <div class="sv-persona-match-card">
-        <div class="sv-pmc-header" style="background: var(--p3);">
-          <div class="sv-pmc-num">3</div>
-          <div>
-            <div class="sv-pmc-name">The Emergent Adopter</div>
-            <div class="sv-pmc-tag">Score 12–14 · Workflow session</div>
-          </div>
-        </div>
-        <div class="sv-pmc-body" style="background: var(--p3-lt);">
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Focus</span><span>Scaffold from episodic tool use to embedded workflow integration.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Tone</span><span>Energetic, collaborative. They are ready — match their pace.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Priority</span><span>Map their current AI tool use (Q7, Q8). Identify the gap between what they do now and a more systematic workflow. Build a simple prompt or process template together.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Takeaway</span><span>A reusable workflow or prompt template for their top time-cost task.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Avoid</span><span>Covering basics they already know. Start from where they are, not from scratch.</span></div>
-        </div>
-      </div>
-
-      <div class="sv-persona-match-card">
-        <div class="sv-pmc-header" style="background: var(--p4);">
-          <div class="sv-pmc-num">4</div>
-          <div>
-            <div class="sv-pmc-name">The Embedded Practitioner</div>
-            <div class="sv-pmc-tag">Score 15–17 · Strategy session</div>
-          </div>
-        </div>
-        <div class="sv-pmc-body" style="background: var(--p4-lt);">
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Focus</span><span>Optimize, expand, or troubleshoot existing AI use.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Tone</span><span>Peer-to-peer. Treat them as a co-strategist, not a student.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Priority</span><span>Understand their current stack (Q7). Use Q12 to identify their specific bottleneck — likely output quality, automation depth, or tool cost. Explore advanced prompting, chaining, or agentic tools.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Takeaway</span><span>A specific upgrade, workaround, or new tool recommendation tailored to their current setup.</span></div>
-          <div class="sv-pmc-row"><span class="sv-pmc-label">Avoid</span><span>Introductory content. Consider inviting them to join a peer-learning cohort or serve as a program ambassador.</span></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ── FOOTER ── -->
-  <div class="sv-footer">
-    <span><strong>Small Business AI Training Program</strong> · Welcome to Chinatown EAC · 2025</span>
-    <span>AI Office Hours · Pre-Session Intake Survey</span>
-  </div>
-
 </div>
 
+<!-- PARTICIPANT PERSONAS -->
+<div class="section-wrap" style="padding-bottom:.5rem">
+  <div class="section-lbl">Participant Personas</div>
+  <h2 class="section-title">Four archetypes. <em>One program.</em></h2>
+  <p class="section-intro">Derived from survey data (n=672) and grounded in Rogers' Diffusion of Innovations, Van Dijk's Digital Divide theory, BCG's AI adoption stages, and Curry's Onion Model of learning styles. These are not fixed categories — they are flexible guides for facilitators.</p>
+</div>
+<div class="persona-wrap">
+  <div class="persona-hint">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+    Click any card to see facilitator guidance for that persona
+  </div>
+  <div class="persona-grid" id="personaGrid"></div>
+</div>
+
+<!-- PHASE 1 -->
+<div class="phase-wrap">
+  <div class="phase-header">
+    <span class="phase-num" style="background:var(--violet-light);color:var(--violet)">Phase 1</span>
+    <span class="phase-title">Foundation</span>
+    <span class="phase-desc">Modules 1–2 · AI literacy and workflow awareness</span>
+  </div>
+</div>
+
+<div class="modules-wrap" id="phase1-mods"></div>
+
+<!-- PHASE 2 -->
+<div class="phase-wrap">
+  <div class="phase-header">
+    <span class="phase-num" style="background:var(--amber-light);color:var(--rust)">Phase 2</span>
+    <span class="phase-title">Application</span>
+    <span class="phase-desc">Modules 3–5 · Hands-on practice across marketing, operations, and customer service</span>
+  </div>
+</div>
+
+<div class="modules-wrap" id="phase2-mods"></div>
+
+<!-- PHASE 3 -->
+<div class="phase-wrap">
+  <div class="phase-header">
+    <span class="phase-num" style="background:var(--plum-light);color:var(--plum)">Phase 3</span>
+    <span class="phase-title">Integration &amp; Reflection</span>
+    <span class="phase-desc">Module 6 · Ethics, policy, and building a personal AI practice</span>
+  </div>
+</div>
+
+<div class="modules-wrap" id="phase3-mods"></div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-inner">
+    <div class="legend-lbl">Framework Reference</div>
+    <div class="legend-grid">
+      <div>
+        <div class="legend-group-title">Kolb's Experiential Learning Cycle</div>
+        <div class="legend-items">
+          <div class="legend-item"><div class="ldot" style="background:var(--gold)"></div><span><strong>Concrete experience</strong> — Doing; direct encounter with a task or situation</span></div>
+          <div class="legend-item"><div class="ldot" style="background:var(--teal)"></div><span><strong>Reflective observation</strong> — Watching; reviewing and reflecting on the experience</span></div>
+          <div class="legend-item"><div class="ldot" style="background:var(--slate)"></div><span><strong>Abstract conceptualisation</strong> — Thinking; forming general principles from reflection</span></div>
+          <div class="legend-item"><div class="ldot" style="background:var(--rust)"></div><span><strong>Active experimentation</strong> — Planning; applying concepts to new situations</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="legend-group-title">Fink's Taxonomy of Significant Learning</div>
+        <div class="legend-items">
+          <div class="legend-item"><div class="ldot" style="background:var(--violet)"></div><span><strong>Foundational knowledge</strong> — Understanding and remembering information</span></div>
+          <div class="legend-item"><div class="ldot" style="background:var(--green)"></div><span><strong>Application</strong> — Using knowledge, skills, and creative thinking</span></div>
+          <div class="legend-item"><div class="ldot" style="background:var(--rust)"></div><span><strong>Integration</strong> — Connecting ideas, people, and realms of life</span></div>
+          <div class="legend-item"><div class="ldot" style="background:var(--amber)"></div><span><strong>Human dimension</strong> — Learning about oneself and how to interact with others</span></div>
+          <div class="legend-item"><div class="ldot" style="background:var(--blue)"></div><span><strong>Caring</strong> — Developing new feelings, interests, and values</span></div>
+          <div class="legend-item"><div class="ldot" style="background:var(--plum)"></div><span><strong>Learning how to learn</strong> — Becoming a better, self-directed learner</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="doc-footer">
+  <div class="doc-footer-inner">
+    <div class="doc-footer-text"><strong>Daniel Quansah</strong> · Bard College Master's Capstone · AI for Urban Resilience · 2026</div>
+    <div class="doc-footer-text">Welcome to Chinatown · NYS EAC Program · <strong>Curriculum Scope &amp; Sequence v1.2</strong></div>
+  </div>
+</footer>
+
+<script>
+// ── PERSONA DATA ─────────────────────────────────────────────────────────
+const PERSONAS = [
+  {
+    num:"1", color:"#B84030", bg:"#F5DDD9",
+    name:"The Structurally Excluded",
+    tagline:"Proximity, not aptitude, is the barrier.",
+    rogers:"Rogers: Laggard (structural)", bcg:"BCG: Information Assistance", share:"~20% of sample",
+    signals:["Struggles with or avoids digital tools","No prior AI tool use, or Google Translate only","Prefers non-English language — Spanish or Chinese","Personal services, food/retail — high operational load","Needs in-person, one-on-one, native language delivery"],
+    // Back face
+    focus:"Phase 1 — Foundation",
+    focusSub:"Prioritise Modules 1 and 2. Move slowly. Build trust before building skills.",
+    objectives:[
+      "Help them understand AI and distinguish it from regular internet use",
+      "Show how businesses like theirs are using AI in simple, familiar ways",
+      "Demonstrate simple AI use through a guided prompt engineering exercise",
+      "Begin a workflow audit only if some AI familiarity is already present"
+    ],
+    sessionGoal:"The session goal is not tool use — it is trust. Success means the participant leaves curious rather than overwhelmed."
+  },
+  {
+    num:"2", color:"#2D4A6A", bg:"#D6E4F0",
+    name:"The Cautious Pragmatist",
+    tagline:"Aware. Not yet committed. Waiting for proof.",
+    rogers:"Rogers: Early/Late Majority", bcg:"BCG: Task Assistance → Delegation", share:"~45% of sample",
+    signals:["Digitally comfortable; tried 1–2 tools episodically","Believes AI could help — needs proof first","Concerned about data privacy and accuracy","Learns by seeing concrete, sequential demonstration","Needs immediate 'so what for my business'"],
+    focus:"Modules 1, 2 &amp; 6",
+    focusSub:"Focus on ethical grounding and responsible AI practice, not technical depth.",
+    objectives:[
+      "Show how other businesses like theirs are using AI — peer proof is the unlock",
+      "Demonstrate how prompt engineering improves the quality of AI output",
+      "Show what responsible AI practice looks like and why it matters",
+      "Share organisations that support responsible, equitable AI innovation"
+    ],
+    sessionGoal:"Session goal: get them to a place where they are willing to do a Workflow Audit. That willingness is the conversion moment."
+  },
+  {
+    num:"3", color:"#1A6E68", bg:"#D5EDEB",
+    name:"The Emergent Adopter",
+    tagline:"Experimenting at the edges. Ready to go further.",
+    rogers:"Rogers: Early Adopter", bcg:"BCG: Delegation (Stage 3)", share:"~25% of sample",
+    signals:["Very comfortable with technology — enjoys experimenting","Uses 3+ tools across marketing and communications","Motivated by guided scaffolding and peer learning","Learns by doing; breaks things before reading manuals","Ready to restructure workflows around AI"],
+    focus:"Phase 2 — Application",
+    focusSub:"Expand AI use into new operational domains. Introduce more sophisticated use cases.",
+    objectives:[
+      "Expand AI use beyond marketing into operations and customer service",
+      "Introduce more specialised tools or advanced use cases as appropriate",
+      "Explain the types of AI — GenAI, RAG, and Agentic — and their distinct use cases",
+      "End with a short-term adoption roadmap for new tools and skills",
+      "Touch on ethical AI practice as a counterweight to rapid adoption"
+    ],
+    sessionGoal:"Move them from task-level AI use toward workflow-level integration. End with a concrete next-steps plan."
+  },
+  {
+    num:"4", color:"#5E3D6B", bg:"#E8DDEF",
+    name:"The Embedded Practitioner",
+    tagline:"AI is not a tool. It is infrastructure.",
+    rogers:"Rogers: Innovator", bcg:"BCG: Semi-autonomous Collaboration (Stage 4)", share:"~10% of sample",
+    signals:["AI is embedded — used daily across multiple workflows","Pushes back when outputs disappoint; iterates deliberately","Concerned about output quality, not access or trust","Can articulate specific limitations of current tools","Acts as informal AI advisor in their peer network"],
+    focus:"Phase 3 — Module 6",
+    focusSub:"This persona benefits most from the Integration &amp; Reflection phase. They are also a program asset.",
+    objectives:[
+      "Devise strategy against platform dependency — what happens if a tool changes pricing, quality, or access?",
+      "Develop a long-term organisational AI strategy covering data governance and privacy",
+      "Reflect critically on their current practice — taking stock of risks and opportunities",
+      "Document their journey as a testimonial for other businesses in the cohort",
+      "Explore how they can engage in AI governance and policy advocacy as a community leader"
+    ],
+    sessionGoal:"Position them as co-facilitators and peer models. Their story is the most compelling proof of concept the program has."
+  }
+];
+
+// ── MODULE DATA ───────────────────────────────────────────────────────────
+const KOLB = ['Concrete experience','Reflective observation','Abstract conceptualisation','Active experimentation'];
+const FINK = ['Foundational knowledge','Application','Integration','Human dimension','Caring','Learning how to learn'];
+
+const MODULES = [
+  {
+    phase:1, color:"var(--violet)", badgeBg:"var(--violet-light)", badgeCol:"var(--violet)",
+    num:"Module 1", title:"AI Demystified: What It Is and Why It Matters for Your Business",
+    tagline:"Build foundational AI literacy grounded in real business challenges, not definitions.",
+    dur:"2 hrs", delivery:[{l:"Online sync",c:"c-sync"},{l:"Group workshop",c:"c-person"}],
+    kolb:[0,1], fink:[0,4,5],
+    outcomes:["Explain what AI is in plain language and distinguish it from automation and software","Identify at least two ways AI is already affecting their industry or neighbourhood","Articulate one personally relevant reason to engage with AI tools","Reflect on their current relationship with technology and identify comfort or anxiety points"],
+    tools:"No tools required. Discussion prompts, video case studies, and peer reflection logs.",
+    equity:"Materials available in Cantonese, Spanish, and Mandarin. Opens with a Welcome to Chinatown case study for cultural relevance.",
+    assess:"Reflection log: 'What is one thing about AI that surprised you, and one thing you're still unsure about?'",
+    reflect:null
+  },
+  {
+    phase:1, color:"var(--green)", badgeBg:"var(--green-light)", badgeCol:"var(--green)",
+    num:"Module 2", title:"Mapping Your Workflow: Where Does AI Fit in Your Business?",
+    tagline:"Apply a structured workflow audit to identify high-value, low-risk AI entry points.",
+    dur:"45–90 mins", delivery:[{l:"1-on-1 session",c:"c-person"},{l:"Online async",c:"c-async"},{l:"Small group workshop",c:"c-person"}],
+    kolb:[0,1,2], fink:[0,1,2],
+    outcomes:["Map at least 5 core business tasks across marketing, operations, and customer service","Categorise tasks by repetitiveness, time cost, and AI-amenability — and map each task type to different AI capabilities, best tools, and practices","Identify one priority workflow domain for AI adoption in their specific business","Complete a Workflow Audit Template to use as reference across Modules 3–5"],
+    tools:"Workflow Audit Template (provided). Optional: Notion, Google Sheets.",
+    equity:"Facilitator-guided 1-on-1 option for low-digital-literacy participants. Template available in simplified and full versions.",
+    assess:"Completed Workflow Audit Template with one identified priority domain and written rationale.",
+    reflect:null
+  },
+  {
+    phase:2, color:"var(--rust)", badgeBg:"#FAE8E2", badgeCol:"var(--rust)",
+    num:"Module 3", title:"AI for Marketing: Reaching More Customers Without More Time",
+    tagline:"Practice using AI tools for content creation, social media, and outreach — including how to prompt effectively.",
+    dur:"2–3 hrs", delivery:[{l:"Live sync",c:"c-sync"},{l:"In-person workshop",c:"c-person"}],
+    kolb:[0,2,3], fink:[0,1,2,3],
+    outcomes:["Use an AI writing tool to draft a social media post or promotional email for their business","Write effective prompts for AI tools — understanding how prompt structure, specificity, and context shape output quality [Prompt engineering]","Evaluate AI-generated content for accuracy, tone, and cultural appropriateness","Identify one marketing workflow where AI saves measurable time or effort","Adapt AI output to reflect their brand voice and community context"],
+    tools:"ChatGPT / Claude (free tier), Canva AI, Google Gemini. Facilitator demo first, then guided practice. Further study: Learn Prompting (learnprompting.org), OpenAI's Prompt Engineering Guide, Anthropic's Prompt Library, Canva AI tutorials in Spanish and Chinese.",
+    equity:"Multilingual prompt templates provided. Examples from immigrant-owned business contexts. Peer pairing for tool-averse participants.",
+    assess:"Live practice: create one piece of marketing content using an AI tool. Group debrief: 'What worked? What needed editing? Why?'",
+    reflect:"Participants note one area where understanding came easily and one where they felt confused or resistant. Reflections shared at the opening of Module 4."
+  },
+  {
+    phase:2, color:"var(--amber)", badgeBg:"var(--amber-light)", badgeCol:"var(--amber)",
+    num:"Module 4", title:"AI for Operations: Working Smarter on the Back End",
+    tagline:"Explore AI tools that streamline scheduling, inventory, finance, and admin — including an introduction to agentic AI.",
+    dur:"2–3 hrs", delivery:[{l:"Live sync",c:"c-sync"},{l:"1-on-1 coaching",c:"c-person"}],
+    kolb:[0,2,3], fink:[1,2,3,5],
+    outcomes:["Identify at least one operational task that can be partially automated using a free or low-cost AI tool","Demonstrate use of one AI-powered tool for scheduling, invoicing, or inventory management — and explore the fundamentals of agentic AI through a simple scheduling use case [Agentic AI intro]","Calculate a rough time-savings estimate for their chosen operational use case","Design a simple adoption plan: tool + task + timeline"],
+    tools:"Notion AI, Google Workspace AI, Wave (accounting), Calendly. Selection guided by business type. Further study: Google's AI Essentials, Microsoft's AI for Business resources, Zapier's beginner automation guides (EN/ES/ZH).",
+    equity:"Tool recommendations tiered by cost (free / freemium / paid). 1-on-1 coaching available for setup support.",
+    assess:"Adoption plan: 'I will use [tool] to [task] by [date], saving ~[X hrs/week].' Each participant assigns an accountability partner from their cohort or social network to check in before Module 5.",
+    reflect:"Participants note one area where understanding came easily and one where they felt confused or resistant. Reflections shared at the opening of Module 5."
+  },
+  {
+    phase:2, color:"var(--blue)", badgeBg:"var(--blue-light)", badgeCol:"var(--blue)",
+    num:"Module 5", title:"AI for Customer Service: Faster Responses, Stronger Relationships",
+    tagline:"Build confidence using AI tools to manage customer communication and feedback.",
+    dur:"1.5–3 hrs", delivery:[{l:"Live sync",c:"c-sync"},{l:"Group workshop",c:"c-person"}],
+    kolb:[0,1,2,3], fink:[1,2,3,4],
+    outcomes:["Draft an AI-assisted customer response template for a common inquiry or complaint","Evaluate the trade-offs between AI-assisted and human-led customer interaction","Set up or configure a basic chatbot or auto-reply workflow","Reflect on how AI use in customer service affects trust, tone, and cultural nuance"],
+    tools:"Tidio, ManyChat (free tier), Gmail templates + AI, Google Business reply tools.",
+    equity:"Discussion of cultural expectations around customer communication. Emphasis on AI as support, not replacement, for relationship-based business models.",
+    assess:"Peer review: exchange and critique each other's AI-drafted customer responses for tone, accuracy, and community appropriateness.",
+    reflect:null
+  },
+  {
+    phase:3, color:"var(--plum)", badgeBg:"var(--plum-light)", badgeCol:"var(--plum)",
+    num:"Module 6", title:"AI with Intention: Ethics, Equity, Policy, and Building Your AI Practice",
+    tagline:"Integrate learning across modules, address ethical and policy dimensions, and build a personal AI adoption roadmap.",
+    dur:"1.5–2 hrs", delivery:[{l:"Group workshop",c:"c-person"},{l:"Online async",c:"c-async"}],
+    kolb:[1,2,3], fink:[2,3,4,5],
+    outcomes:["Identify at least two ethical risks of AI relevant to their business (data privacy, bias, labour displacement)","Articulate how AI adoption could affect their employees, customers, and community","Understand the current policy and regulatory landscape governing AI [AI policy literacy]","Identify concrete ways small businesses can engage in AI governance and advocate for equity [AI governance]","Complete a Personal AI Adoption Roadmap covering tools, timelines, and learning goals","Connect their AI learning journey to a broader vision for business economic resilience"],
+    tools:"Reflection workbook (provided). Optional: revisit tools from Modules 3–5. Organisations Supporting SMBs in the AI Evolution: AI for Good (aiforgood.itu.int) · Small Business Majority (smallbusinessmajority.org) · AI Now Institute (ainowinstitute.org) · Center for Humane Technology (humanetech.com)",
+    equity:"Explicit discussion of how AI policy affects immigrant-owned and minority businesses. Policy resources and advocacy pathways shared in all three languages.",
+    assess:"Personal AI Adoption Roadmap — reviewed in a final 1-on-1 coaching session with the EAC facilitator.",
+    reflect:null
+  }
+];
+
+// ── RENDER PERSONAS ───────────────────────────────────────────────────────
+function renderPersonas() {
+  const grid = document.getElementById('personaGrid');
+  PERSONAS.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'pc';
+    card.innerHTML = `
+      <div class="pc-inner">
+        <div class="pc-front">
+          <div class="pc-accent" style="background:${p.color}"></div>
+          <div class="pc-front-top">
+            <div class="pc-num" style="color:${p.color}20;-webkit-text-stroke:1px ${p.color}40">${p.num}</div>
+            <div class="pc-name" style="color:${p.color}">${p.name}</div>
+            <div class="pc-tagline">${p.tagline}</div>
+            <div class="pc-badges">
+              <span class="pc-badge" style="background:${p.bg};color:${p.color};border-color:${p.color}30">${p.rogers}</span>
+              <span class="pc-badge" style="background:${p.bg};color:${p.color};border-color:${p.color}30">${p.bcg}</span>
+              <span class="pc-badge">${p.share}</span>
+            </div>
+          </div>
+          <ul class="pc-signals">${p.signals.map(s=>`<li>${s}</li>`).join('')}</ul>
+          <div class="pc-flip-hint"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>Facilitator view</div>
+        </div>
+        <div class="pc-back" style="background:${p.bg}">
+          <div class="pc-back-top">
+            <span class="pc-back-badge" style="background:${p.color};color:white">${p.name}</span>
+            <div class="pc-back-focus" style="color:${p.color}">${p.focus}</div>
+            <div class="pc-back-sub">${p.focusSub}</div>
+          </div>
+          <div class="pc-back-section">
+            <div class="pc-back-lbl">Session objectives</div>
+            <ul class="pc-back-list">${p.objectives.map(o=>`<li>${o}</li>`).join('')}</ul>
+          </div>
+          <div class="pc-back-section">
+            <div class="pc-back-lbl">Session goal</div>
+            <div style="font-size:.73rem;color:var(--ink-mid);line-height:1.5;font-style:italic;padding:.3rem .5rem;background:rgba(255,255,255,.5);border-radius:4px">${p.sessionGoal}</div>
+          </div>
+          <div class="pc-back-flip"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>Back to profile</div>
+        </div>
+      </div>`;
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    grid.appendChild(card);
+  });
+}
+
+// ── RENDER MODULES ────────────────────────────────────────────────────────
+function renderModules() {
+  const containers = { 1:'phase1-mods', 2:'phase2-mods', 3:'phase3-mods' };
+
+  MODULES.forEach((mod, i) => {
+    const wrap = document.getElementById(containers[mod.phase]);
+    if (!wrap) return;
+
+    const kolbPills = KOLB.map((l,j)=>`<span class="pill${mod.kolb.includes(j)?' on':''}">${l}</span>`).join('');
+    const finkPills = FINK.map((l,j)=>`<span class="pill${mod.fink.includes(j)?' on':''}">${l}</span>`).join('');
+    const chips = mod.delivery.map(d=>`<span class="chip ${d.c}">${d.l}</span>`).join('');
+    const outcomes = mod.outcomes.map(o=>`<li>${o}</li>`).join('');
+
+    // Split tools into primary + further study
+    const ftIdx = mod.tools.indexOf('Further study:');
+    const toolsPrimary = ftIdx > -1 ? mod.tools.slice(0,ftIdx).trim() : mod.tools;
+    const toolsFurther = ftIdx > -1 ? mod.tools.slice(ftIdx + 14).trim() : null;
+    const orgsIdx = mod.tools.indexOf('Organisations Supporting');
+    const toolsPrimary2 = orgsIdx > -1 ? mod.tools.slice(0,orgsIdx).trim() : toolsPrimary;
+    const toolsOrgs = orgsIdx > -1 ? mod.tools.slice(orgsIdx) : null;
+
+    const toolsFinalPrimary = toolsPrimary2 !== toolsPrimary ? toolsPrimary2 : toolsPrimary;
+    const toolsFinalExtra = toolsFurther || toolsOrgs;
+    const toolsExtraLbl = toolsOrgs ? 'Organisations Supporting SMBs in the AI Evolution' : 'Further Study — Open Access';
+
+    const card = document.createElement('div');
+    card.className = 'mod-card';
+    card.innerHTML = `
+      <div class="mod-top" onclick="this.parentElement.classList.toggle('open')">
+        <div class="mod-accent" style="background:${mod.color}"></div>
+        <span class="mod-badge" style="background:${mod.badgeBg};color:${mod.badgeCol}">${mod.num}</span>
+        <div class="mod-hd">
+          <div class="mod-title">${mod.title}</div>
+          <div class="mod-tagline">${mod.tagline}</div>
+        </div>
+        <div class="mod-chips"><span class="chip c-dur">${mod.dur}</span>${chips}</div>
+        <span class="mod-arrow">▾</span>
+      </div>
+      <div class="mod-body">
+        <div class="mod-full">
+          <div class="cell-lbl">Learning Outcomes</div>
+          <ul class="oc-list">${outcomes}</ul>
+        </div>
+        <div>
+          <div class="cell-lbl">Kolb Stages</div>
+          <div class="pill-row">${kolbPills}</div>
+          <div class="cell-lbl" style="margin-top:.65rem">Fink Dimensions</div>
+          <div class="pill-row">${finkPills}</div>
+        </div>
+        <div>
+          <div class="cell-lbl">Delivery Mode</div>
+          <div class="pill-row" style="margin-bottom:.65rem">${chips}</div>
+          <div class="cell-lbl">Tools &amp; Resources</div>
+          <div class="ic">
+            <strong>Primary tools &amp; resources</strong>${toolsFinalPrimary}
+            ${toolsFinalExtra ? `<span class="further-lbl">${toolsExtraLbl}</span>${toolsFinalExtra}` : ''}
+          </div>
+        </div>
+        <div class="mod-full">
+          <div class="cell-lbl">Equity Note</div>
+          <div class="ic equity"><strong>Design for inclusion</strong>${mod.equity}</div>
+        </div>
+        <div class="mod-full">
+          <div class="cell-lbl">Assessment</div>
+          <div class="ic assess"><strong>Assessment activity</strong>${mod.assess}</div>
+          ${mod.reflect ? `<div class="ic reflect" style="margin-top:.5rem"><strong>Metacognitive reflection</strong>${mod.reflect}</div>` : ''}
+        </div>
+      </div>`;
+    wrap.appendChild(card);
+  });
+}
+
+renderPersonas();
+renderModules();
+</script>
 </body>
 </html>
